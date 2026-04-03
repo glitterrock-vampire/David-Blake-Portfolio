@@ -2,20 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-const images = [
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b5b97b634_generated_da364573.png", alt: "Melanin Migration Performance" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/c1ba29128_generated_a68e1ea9.png", alt: "Awards Ceremony" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/6d649a4f5_generated_e3086f8c.png", alt: "Stage Performance" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/2eda9fd59_generated_60044d95.png", alt: "Dance Rehearsal Studio" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/3c9eee068_generated_1a2867f9.png", alt: "Dance Workshop" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b754eb047_generated_cd5873fd.png", alt: "Rehearsal Duet" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/9e7e5467b_generated_4673f453.png", alt: "Graduation Ceremony" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/9a2867c0b_generated_ae68bcb6.png", alt: "Drawing With Light" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/1daf94633_generated_377ba96e.png", alt: "Embodied Code" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/233df2bb8_generated_158df6d1.png", alt: "Creative Direction" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/a88d2e3bf_generated_62c23445.png", alt: "Creative Lab" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/3c7222529_generated_a3983d22.png", alt: "Mentoring Session" },
-];
+const images = [];
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null);
