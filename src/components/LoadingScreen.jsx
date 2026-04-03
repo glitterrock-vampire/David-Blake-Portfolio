@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // ← Replace this with your actual hosted video URL (e.g. Cloudinary, Vimeo direct link, etc.)
-const VIDEO_URL = "https://www.w3schools.com/html/mov_bbb.mp4";
+const VIDEO_URL = "/videos/VIDEO-2026-03-28-20-03-24.mp4";
 
 const PORTRAIT_URL = "https://www.davidpblake.org/images/hero/Photo%2008-12-2025,%2012%2002%2027%20(19).jpg";
 
@@ -101,6 +101,7 @@ export default function LoadingScreen({ onComplete }) {
           <source src={VIDEO_URL} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50" />
       </div>
 
       {/* Scanline texture */}
@@ -137,7 +138,7 @@ export default function LoadingScreen({ onComplete }) {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="w-1/2 flex flex-col justify-center px-16 xl:px-24"
         >
-          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-white/30 mb-8">
+          <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-white/30 mb-12">
             — initialising —
           </p>
           <ProgressList onComplete={onComplete} />
@@ -157,13 +158,13 @@ export default function LoadingScreen({ onComplete }) {
               className="w-full h-full object-cover object-top"
               style={{ maskImage: "linear-gradient(to left, black 60%, transparent 100%)" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/30" />
           </div>
 
           <div className="relative z-10">
             <h1
-              className="text-7xl xl:text-8xl font-black text-white leading-none mb-4"
+              className="text-7xl xl:text-8xl font-black text-white leading-none mb-8"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               david<br />blake

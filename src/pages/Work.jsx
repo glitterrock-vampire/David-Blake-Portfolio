@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -26,14 +26,21 @@ const projects = [
 ];
 
 export default function Work() {
+  const navigate = useNavigate();
+
+  const handleWorkClick = () => {
+    navigate('/work/melanin-migration');
+  };
+
   return (
-    <div className="pt-28 md:pt-36 pb-24">
+    <div className="pt-28 md:pt-36 pb-24 bg-black text-white">
       {/* Header */}
       <div className="text-center mb-20 px-6">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-foreground mb-6"
+          className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-white mb-6 cursor-pointer"
+          onClick={handleWorkClick}
         >
           Selected Work
         </motion.h1>
@@ -41,7 +48,7 @@ export default function Work() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="font-body text-sm text-muted-foreground font-light max-w-xl mx-auto"
+          className="font-body text-sm text-white/70 font-light max-w-xl mx-auto"
         >
           Explore my portfolio of creative projects, choreography, and performance work across stage, screen, and digital platforms.
         </motion.p>

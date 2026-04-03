@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+import { useMemo } from "react";
 
 const projectsData = {
   "melanin-migration": {
@@ -41,10 +42,19 @@ const projectsData = {
 };
 
 export default function WorkDetail() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const pathParts = window.location.pathname.split("/");
-  const slug = pathParts[pathParts.length - 1];
-  const project = projectsData[slug];
+  const { slug } = useParams();
+
+  const project = useMemo(
+    () => projectsData[slug],
+    [slug]
+  );
+
+  const otherProjects = useMemo(
+    () => Object.entries(projectsData)
+      .filter(([key]) => key !== slug)
+      .map(([, value]) => value),
+    [slug]
+  );
 
   if (!project) {
     return (
@@ -174,6 +184,48 @@ export default function WorkDetail() {
           )}
         </div>
       </section>
+
+      {/* Other Work */}
+      {otherProjects.length > 0 && (
+        <section className="py-20 px-6 md:px-12 border-t border-border">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-12 text-center">
+              Other Work
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {otherProjects.map((item, i) => (
+                <motion.div
+                  key={item.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <Link
+                    to={`/work/${item.slug}`}
+                    className="block group cursor-pointer"
+                  >
+                    <div className="aspect-[16/9] overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-heading text-xl text-foreground group-hover:text-orange-500 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="font-body text-sm text-muted-foreground mt-2">
+                      {item.subtitle}
+                    </p>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Back */}
       <div className="px-6 md:px-12 pb-20">
