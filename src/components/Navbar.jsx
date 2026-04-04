@@ -60,7 +60,9 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 bg-background border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px]"
+                          className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
+                            isWorkPage || isCreativeLabPage ? 'bg-black/90' : 'bg-background'
+                          }`}
                         >
                           <Link
                             to="/work/melanin-migration"
@@ -90,7 +92,9 @@ export default function Navbar() {
                             href="https://www.blakearts.org/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block px-4 py-3 font-body text-sm text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors flex items-center justify-between"
+                            className={`block px-4 py-3 font-body text-sm transition-colors flex items-center justify-between ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            }`}
                           >
                             <span>blakearts.org</span>
                             <ExternalLink className="w-3 h-3" />
@@ -123,11 +127,15 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 bg-background border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px]"
+                          className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
+                            isWorkPage || isCreativeLabPage ? 'bg-black/90' : 'bg-background'
+                          }`}
                         >
                           <Link
                             to="/creative-lab"
-                            className="block px-4 py-3 font-body text-sm text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            }`}
                           >
                             The Creative Lab
                           </Link>
@@ -152,7 +160,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               className={`font-body text-sm tracking-widest lowercase border px-5 py-2 transition-all duration-300 ${
-                isWorkPage || isCreativeLabPage ? 'border-white text-white hover:bg-white hover:text-black' : isGalleryPage ? 'border-sage-700 text-sage-700 hover:bg-sage-700 hover:text-white' : 'border-foreground text-foreground hover:bg-foreground hover:text-background'
+                isWorkPage || isCreativeLabPage ? 'border-white text-white hover:bg-sage hover:text-black' : isGalleryPage ? 'border-sage-700 text-sage-700 hover:bg-sage-700 hover:text-white' : 'border-foreground text-foreground hover:bg-sage hover:text-background'
               }`}
             >
               let's connect
@@ -290,7 +298,7 @@ export default function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="font-body text-sm tracking-widest lowercase border border-foreground px-8 py-3 text-foreground"
+                  className="font-body text-sm tracking-widest lowercase border border-foreground px-8 py-3 text-foreground hover:bg-sage hover:text-background transition-all duration-300"
                 >
                   let's connect
                 </Link>

@@ -18,6 +18,10 @@
     --muted-foreground: 0 0% 45%;
     --accent: 0 0% 96%;
     --accent-foreground: 0 0% 15%;
+    --sage: 150 25% 45%;
+    --sage-foreground: 0 0% 92%;
+    --rust: 15 55% 45%;
+    --rust-foreground: 0 0% 92%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 80%;
@@ -56,6 +60,10 @@
     --muted-foreground: 0 0% 60%;
     --accent: 0 0% 18%;
     --accent-foreground: 0 0% 92%;
+    --sage: 150 25% 35%;
+    --sage-foreground: 0 0% 92%;
+    --rust: 15 55% 40%;
+    --rust-foreground: 0 0% 92%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 20%;

@@ -1,6 +1,30 @@
 import { motion } from "framer-motion";
 import ServiceCard from "../components/services/ServiceCard";
 
+// Container animation for stagger effects
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
 const creativeLabServices = [
   {
     title: "Portfolio Development",
@@ -37,7 +61,7 @@ export default function CreativeLab() {
           className="aspect-[16/9] overflow-hidden rounded-lg"
         >
           <img
-            src="/videos/the-creative-lab.jpeg"
+            src="/photos/the-creative-lab.jpeg"
             alt="Creative Lab Workshop"
             className="w-full h-full object-cover"
           />
@@ -67,7 +91,12 @@ export default function CreativeLab() {
         >
           What You'll Get
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {[
             "Industry insights from an experienced performer and mentor",
             "Tools for building networks and career strategy",
@@ -77,25 +106,30 @@ export default function CreativeLab() {
           ].map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
+              variants={itemVariants}
               className="flex items-start gap-4"
             >
               <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0" />
               <p className="font-body text-base leading-relaxed text-white/70">{item}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Services Grid */}
       <div className="max-w-6xl mx-auto px-6 md:px-12 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-1"
+        >
           {creativeLabServices.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
+            <motion.div key={service.title} variants={itemVariants}>
+              <ServiceCard service={service} index={i} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Register Interest Form */}
@@ -117,7 +151,7 @@ export default function CreativeLab() {
               <label className="block font-body text-sm text-white mb-2">Name</label>
               <input
                 type="text"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/50 transition-colors"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-sage/50 focus:outline-none focus:border-white/50 transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -125,7 +159,7 @@ export default function CreativeLab() {
               <label className="block font-body text-sm text-white mb-2">Email</label>
               <input
                 type="email"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/50 transition-colors"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-sage/50 focus:outline-none focus:border-white/50 transition-colors"
                 placeholder="your.email@example.com"
               />
             </div>

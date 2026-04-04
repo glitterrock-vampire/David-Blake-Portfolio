@@ -27,7 +27,7 @@ export default function ServiceCard({ service, index }) {
 
       {/* Hover description */}
       <div className="absolute inset-0 flex items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <p className="font-body text-sm text-white/90 font-light leading-relaxed text-center">
+        <p className="font-body text-base text-white/90 font-semibold leading-relaxed text-center">
           {service.description}
         </p>
       </div>

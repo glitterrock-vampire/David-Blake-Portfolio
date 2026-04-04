@@ -41,6 +41,14 @@ module.exports = {
   				DEFAULT: 'hsl(var(--accent))',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
+  			sage: {
+  				DEFAULT: 'hsl(var(--sage))',
+  				foreground: 'hsl(var(--sage-foreground))'
+  			},
+  			rust: {
+  				DEFAULT: 'hsl(var(--rust))',
+  				foreground: 'hsl(var(--rust-foreground))'
+  			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'

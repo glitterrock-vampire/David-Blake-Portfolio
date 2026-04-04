@@ -65,7 +65,7 @@ export default function About() {
         className="max-w-2xl mx-auto mb-20 px-6"
       >
         <img
-          src="https://media.base44.com/images/public/69cb383c7ed443549328234d/862ba067e_generated_60bfc5ff.png"
+          src="/photos/Photo 08-12-2025, 12 02 27 (18).jpg"
           alt="David Blake - Professional portrait"
           className="w-full object-cover"
         />

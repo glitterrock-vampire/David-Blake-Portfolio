@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 
 const projectsData = {
   "melanin-migration": {
@@ -43,18 +43,48 @@ const projectsData = {
 
 export default function WorkDetail() {
   const { slug } = useParams();
+  const videoRef = useRef(null);
+  const [isVideoInView, setIsVideoInView] = useState(false);
 
   const project = useMemo(
     () => projectsData[slug],
     [slug]
   );
 
-  const otherProjects = useMemo(
-    () => Object.entries(projectsData)
-      .filter(([key]) => key !== slug)
-      .map(([, value]) => value),
-    [slug]
-  );
+  const projectSlugs = Object.keys(projectsData);
+  const currentIndex = projectSlugs.indexOf(slug);
+  const previousProject = currentIndex > 0 ? projectSlugs[currentIndex - 1] : null;
+  const nextProject = currentIndex < projectSlugs.length - 1 ? projectSlugs[currentIndex + 1] : null;
+
+  // Scroll-based video auto-play
+  useEffect(() => {
+    if (slug !== "melanin-migration" || !videoRef.current) return;
+
+    const video = videoRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(err => console.log("Auto-play failed:", err));
+            setIsVideoInView(true);
+          } else {
+            video.pause();
+            setIsVideoInView(false);
+          }
+        });
+      },
+      { threshold: 0.5 } // Play when 50% of video is visible
+    );
+
+    observer.observe(video);
+
+    return () => {
+      if (video) {
+        observer.unobserve(video);
+        video.pause();
+      }
+    };
+  }, [slug]);
 
   if (!project) {
     return (
@@ -116,6 +146,36 @@ export default function WorkDetail() {
       {/* Content */}
       <section className="py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto space-y-16">
+          {/* Video - Only for Melanin Migration */}
+          {slug === "melanin-migration" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="aspect-[16/9] overflow-hidden rounded-lg"
+            >
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                playsInline
+                autoPlay={false}
+                muted={true}
+                loop={true}
+                preload="metadata"
+              >
+                <source src="/videos/Melanin Migration .mov" type="video/mp4" />
+                <source src="/videos/Melanin Migration .mov" type="video/quicktime" />
+                Your browser does not support the video tag.
+              </video>
+              {/* Visual indicator for auto-play status */}
+              <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
+                <p className="text-white text-xs font-mono">
+                  {isVideoInView ? "▶ PLAYING" : "⏸ PAUSED"}
+                </p>
+              </div>
+            </motion.div>
+          )}
+
           {/* Overview */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -185,47 +245,32 @@ export default function WorkDetail() {
         </div>
       </section>
 
-      {/* Other Work */}
-      {otherProjects.length > 0 && (
-        <section className="py-20 px-6 md:px-12 border-t border-border">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-12 text-center">
-              Other Work
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {otherProjects.map((item, i) => (
-                <motion.div
-                  key={item.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link
-                    to={`/work/${item.slug}`}
-                    className="block group cursor-pointer"
-                  >
-                    <div className="aspect-[16/9] overflow-hidden rounded-lg mb-4">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                    </div>
-                    <h3 className="font-heading text-xl text-foreground group-hover:text-orange-500 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="font-body text-sm text-muted-foreground mt-2">
-                      {item.subtitle}
-                    </p>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+      {/* Navigation */}
+      <section className="py-20 px-6 md:px-12 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex justify-between items-center">
+            {previousProject && (
+              <Link
+                to={`/work/${previousProject}`}
+                className="inline-flex items-center gap-2 font-body text-sm tracking-widest lowercase text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" strokeWidth={1} />
+                Previous
+              </Link>
+            )}
+            <div className="flex-1" />
+            {nextProject && (
+              <Link
+                to={`/work/${nextProject}`}
+                className="inline-flex items-center gap-2 font-body text-sm tracking-widest lowercase text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Next
+                <ArrowLeft className="w-4 h-4 rotate-180" strokeWidth={1} />
+              </Link>
+            )}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Back */}
       <div className="px-6 md:px-12 pb-20">

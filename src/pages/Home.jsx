@@ -69,6 +69,20 @@ export default function Home() {
         {/* Creative Lab */}
         <section className="py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative aspect-[16/9] overflow-hidden rounded-lg mb-12"
+            >
+              <img
+                src="/photos/the-creative-lab.jpeg"
+                alt="Creative Lab Workshop"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

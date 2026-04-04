@@ -81,6 +81,13 @@ function ProgressList({ onComplete }) {
 }
 
 export default function LoadingScreen({ onComplete }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
   return (
     <motion.div
       className="fixed inset-0 z-[200] bg-[#0d0d0d] overflow-hidden"
@@ -125,7 +132,7 @@ export default function LoadingScreen({ onComplete }) {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="w-full h-px bg-white/20 mb-6 origin-left"
         />
-        <ProgressList onComplete={onComplete} />
+        {/* Progress removed - just show loading */}
       </div>
 
       {/* ── DESKTOP layout ── */}
@@ -139,9 +146,9 @@ export default function LoadingScreen({ onComplete }) {
           className="w-1/2 flex flex-col justify-center px-16 xl:px-24"
         >
           <p className="font-mono text-[9px] tracking-[0.4em] uppercase text-white/30 mb-12">
-            — initialising —
+            — loading —
           </p>
-          <ProgressList onComplete={onComplete} />
+          {/* Progress removed - just show loading */}
         </motion.div>
 
         {/* Right — portrait + name */}
