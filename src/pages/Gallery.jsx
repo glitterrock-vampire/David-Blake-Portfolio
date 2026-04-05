@@ -1,39 +1,107 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play, Pause } from "lucide-react";
 
 const VIDEO_URL = "/videos/VIDEO-2026-03-28-20-03-24.mp4";
 
 const images = [
-  { src: "/videos/ChatGPT Image Apr 3, 2026, 04_48_37 AM.png", alt: "Drawing With Light" },
-  { src: "https://media.base44.com/images/public/69cb383c7ed443549328234d/1daf94633_generated_377ba96e.png", alt: "Embodied Code" },
+  { src: "/photos/Photo 08-12-2025, 12 02 27 (1).jpg", alt: "Performance Moment" },
+  { src: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg", alt: "Creative Process" },
+  { src: "/photos/Photo 08-12-2025, 12 02 27 (5).jpg", alt: "Dance Rehearsal" },
+  { src: "/photos/Photo 08-12-2025, 12 02 27 (12).jpg", alt: "Stage Performance" },
+  { src: "/photos/Photo 14-10-2020, 16 08 01.jpg", alt: "Workshop Session" },
+  { src: "/photos/Photo 14-10-2020, 16 18 00.jpg", alt: "Teaching Moment" },
+  { src: "/photos/Photo 15-02-2013, 13 52 13.jpg", alt: "Early Career" },
+  { src: "/photos/Photo 28-09-2018, 16 58 35.jpg", alt: "Performance Art" },
+  { src: "/photos/Photo 28-09-2018, 17 08 57.jpg", alt: "Creative Direction" },
+  { src: "/photos/Photo 06-06-2024, 22 01 38.jpg", alt: "Recent Work" },
+  { src: "/photos/embodied-code.png", alt: "Embodied Code" },
+  { src: "/photos/the-creative-lab.jpeg", alt: "Creative Lab Workshop" },
 ];
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const featuredVideoRef = useRef(null);
+  const melaninVideoRef = useRef(null);
+
+  // Auto-play videos on scroll
+  useEffect(() => {
+    const videos = [
+      { ref: featuredVideoRef, playingState: isVideoPlaying },
+      { ref: melaninVideoRef, playingState: false } // Melanin video auto-plays independently
+    ];
+
+    const observers = videos.map(({ ref }) => {
+      if (!ref.current) return null;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (video instanceof HTMLVideoElement) {
+              if (entry.isIntersecting) {
+                video.play().catch(err => console.log("Auto-play failed:", err));
+              } else {
+                video.pause();
+              }
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(ref.current);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => {
+        if (observer) observer.disconnect();
+      });
+    };
+  }, [isVideoPlaying]);
 
   const toggleVideo = () => {
     setIsVideoPlaying(!isVideoPlaying);
   };
 
   return (
-    <div className="pt-28 md:pt-36 pb-24 bg-sage-100">
+    <div className="pt-28 md:pt-36 pb-24 bg-black text-white">
       <div className="text-center mb-6 px-6">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
           className="font-body text-xs tracking-[0.3em] uppercase text-rust mb-4"
         >
-          Visual Archive
+          {"Visual Archive".split("").map((letter, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05, duration: 0.6 }}
+            >
+              {letter}
+            </motion.span>
+          ))}
         </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
           className="font-heading text-5xl md:text-7xl tracking-wide text-rust"
         >
-          Gallery
+          {"Gallery".split("").map((letter, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + i * 0.1, duration: 0.6 }}
+            >
+              {letter}
+            </motion.span>
+          ))}
         </motion.h1>
       </div>
       <div className="text-center mb-16 px-6">
@@ -51,25 +119,20 @@ export default function Gallery() {
       <div className="columns-2 md:columns-3 lg:columns-4 gap-1 px-1">
         {/* Video Item */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0 }}
-          className="break-inside-avoid mb-1 cursor-pointer group"
-          onClick={toggleVideo}
+          transition={{ delay: 0, duration: 0.6 }}
+          className="break-inside-avoid mb-1 group"
         >
           <div className="relative overflow-hidden rounded-lg">
             <video
-              ref={(el) => {
-                if (el) {
-                  if (isVideoPlaying) el.play();
-                  else el.pause();
-                }
-              }}
+              ref={featuredVideoRef}
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               loop
               muted
               playsInline
+              preload="metadata"
             >
               <source src={VIDEO_URL} type="video/mp4" />
             </video>
@@ -87,19 +150,21 @@ export default function Gallery() {
 
         {/* Melanin Migration Video Item */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
           className="break-inside-avoid mb-1 cursor-pointer group"
         >
           <div className="relative overflow-hidden rounded-lg">
             <video
+              ref={melaninVideoRef}
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               loop
               muted
               playsInline
               preload="metadata"
+              autoPlay
             >
               <source src="/videos/Melanin Migration .mov" type="video/mp4" />
               <source src="/videos/Melanin Migration .mov" type="video/quicktime" />
@@ -120,10 +185,10 @@ export default function Gallery() {
         {images.map((img, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
+            transition={{ delay: 0.2 + i * 0.08, duration: 0.6 }}
             className="break-inside-avoid mb-1 cursor-pointer group"
             onClick={() => setSelected(img)}
           >

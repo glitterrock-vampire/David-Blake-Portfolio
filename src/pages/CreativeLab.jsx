@@ -29,22 +29,22 @@ const creativeLabServices = [
   {
     title: "Portfolio Development",
     description: "Personal branding and portfolio development for dancers and performing artists. Creating compelling digital presence that showcases your unique artistic voice and professional journey.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/233df2bb8_generated_158df6d1.png",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (5).jpg",
   },
   {
     title: "Audition Technique",
     description: "Master audition preparation and technique refinement across dance, musical theatre, and commercial performance. Build confidence and versatility for diverse casting opportunities.",
-    image: "/videos/ChatGPT Image Apr 3, 2026, 04_48_37 AM.png",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (12).jpg",
   },
   {
     title: "Career Strategy Sessions",
     description: "One-on-one guidance for long-term career planning. Navigate the performing arts industry with strategic thinking, goal setting, and actionable career development plans.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/3c7222529_generated_a3983d22.png",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (1).jpg",
   },
   {
     title: "Industry Networking",
     description: "Connect with industry professionals and build meaningful relationships. Learn networking strategies specific to the performing arts sector and expand your professional circle.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/a88d2e3bf_generated_62c23445.png",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg",
   },
 ];
 

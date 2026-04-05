@@ -6,27 +6,27 @@ const services = [
   {
     title: "Creative Direction",
     description: "Strategic vision and artistic leadership for projects across stage, screen, and digital platforms. From concept to execution, shaping cohesive and impactful creative outcomes.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/233df2bb8_generated_158df6d1.png",
+    image: "/photos/Photo 28-09-2018, 16 58 35.jpg",
   },
   {
     title: "Choreography",
     description: "Original choreography and movement direction for performances, events, and productions. Creating compelling work through storytelling, musicality, and physical language.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/2eda9fd59_generated_60044d95.png",
+    image: "/photos/Photo 14-10-2020, 16 08 01.jpg",
   },
   {
     title: "External Advisory & Consultancy",
     description: "External advisory support for higher education and creative organisations, including programme validation, curriculum development, employability strategy, and quality enhancement.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/76527826c_generated_14b90782.png",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (5).jpg",
   },
   {
     title: "Mentoring & Coaching",
     description: "One-to-one mentoring and career coaching for artists and creative practitioners, offering structured guidance, reflection, and practical tools to strengthen professional identity and sustain long-term practice.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/3c7222529_generated_a3983d22.png",
+    image: "/photos/Photo 14-10-2020, 16 18 00.jpg",
   },
   {
     title: "The Creative Lab",
     description: "Workshops, career clinics, and professional development sessions supporting emerging and mid-career artists with industry transition, mindset, and sustainable career strategy.",
-    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/a88d2e3bf_generated_62c23445.png",
+    image: "/photos/the-creative-lab.jpeg",
   },
 ];
 

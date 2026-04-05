@@ -23,11 +23,11 @@ export default function Navbar() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm ${
-        isWorkPage || isCreativeLabPage ? 'bg-black/80' : isGalleryPage ? 'bg-sage-100/90' : 'bg-background/80'
+        isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/80' : 'bg-background/80'
       }`}>
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
           <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide lowercase ${
-            isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-sage-900' : 'text-foreground'
+            isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`}>
             david blake
           </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
                       className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
                         location.pathname === "/work" || workDropdownOpen
                           ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-sage-700 hover:text-sage-900" : "text-muted-foreground hover:text-orange-500"
+                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
                       }`}
                     >
                       {link.label}
@@ -61,13 +61,13 @@ export default function Navbar() {
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
                           className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
-                            isWorkPage || isCreativeLabPage ? 'bg-black/90' : 'bg-background'
+                            isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/90' : 'bg-background'
                           }`}
                         >
                           <Link
                             to="/work/melanin-migration"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
                             Melanin Migration
@@ -75,7 +75,7 @@ export default function Navbar() {
                           <Link
                             to="/work/drawing-with-light"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
                             Drawing With Light
@@ -83,7 +83,7 @@ export default function Navbar() {
                           <Link
                             to="/work/embodied-code"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
                             Embodied Code
@@ -93,7 +93,7 @@ export default function Navbar() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`block px-4 py-3 font-body text-sm transition-colors flex items-center justify-between ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
                             <span>blakearts.org</span>
@@ -114,7 +114,7 @@ export default function Navbar() {
                       className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
                         location.pathname === "/services" || servicesDropdownOpen
                           ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-sage-700 hover:text-sage-900" : "text-muted-foreground hover:text-orange-500"
+                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
                       }`}
                     >
                       {link.label}
@@ -128,13 +128,13 @@ export default function Navbar() {
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
                           className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
-                            isWorkPage || isCreativeLabPage ? 'bg-black/90' : 'bg-background'
+                            isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/90' : 'bg-background'
                           }`}
                         >
                           <Link
                             to="/creative-lab"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
                             The Creative Lab
@@ -149,7 +149,7 @@ export default function Navbar() {
                     className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 ${
                       location.pathname === link.path
                         ? "text-foreground"
-                        : link.label === "gallery" ? (isGalleryPage ? "text-sage-700 hover:text-sage-900" : "text-muted-foreground hover:text-orange-500") : "text-muted-foreground hover:text-foreground"
+                        : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.label}
@@ -160,7 +160,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               className={`font-body text-sm tracking-widest lowercase border px-5 py-2 transition-all duration-300 ${
-                isWorkPage || isCreativeLabPage ? 'border-white text-white hover:bg-sage hover:text-black' : isGalleryPage ? 'border-sage-700 text-sage-700 hover:bg-sage-700 hover:text-white' : 'border-foreground text-foreground hover:bg-sage hover:text-background'
+                isWorkPage || isCreativeLabPage ? 'border-white text-white hover:bg-sage hover:text-black' : isGalleryPage ? 'border-white/70 text-white/70 hover:border-orange-500 hover:text-orange-500' : 'border-foreground text-foreground hover:bg-sage hover:text-background'
               }`}
             >
               let's connect
@@ -185,17 +185,21 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-background flex flex-col"
+            className={`fixed inset-0 z-[100] flex flex-col ${
+              isGalleryPage ? 'bg-black' : 'bg-background'
+            }`}
           >
             <div className="flex items-center justify-between px-6 py-5">
               <Link
                 to="/"
                 onClick={() => setMobileOpen(false)}
-                className="font-heading text-xl tracking-wide text-foreground lowercase"
+                className={`font-heading text-xl tracking-wide lowercase ${
+                  isGalleryPage ? 'text-rust' : 'text-foreground'
+                }`}
               >
                 david blake
               </Link>
-              <button onClick={() => setMobileOpen(false)} className="text-foreground">
+              <button onClick={() => setMobileOpen(false)} className={isGalleryPage ? 'text-white' : 'text-foreground'}>
                 <X className="w-6 h-6" strokeWidth={1} />
               </button>
             </div>
@@ -213,7 +217,7 @@ export default function Navbar() {
                         to={link.path}
                         onClick={() => setMobileOpen(false)}
                         className={`font-heading text-3xl tracking-wide lowercase ${
-                          isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-sage-900' : 'text-foreground'
+                          isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
                         }`}
                       >
                         {link.label}
@@ -223,7 +227,7 @@ export default function Navbar() {
                           to="/work/melanin-migration"
                           onClick={() => setMobileOpen(false)}
                           className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                           }`}
                         >
                           Melanin Migration
@@ -232,7 +236,7 @@ export default function Navbar() {
                           to="/work/drawing-with-light"
                           onClick={() => setMobileOpen(false)}
                           className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                           }`}
                         >
                           Drawing With Light
@@ -241,7 +245,7 @@ export default function Navbar() {
                           to="/work/embodied-code"
                           onClick={() => setMobileOpen(false)}
                           className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                           }`}
                         >
                           Embodied Code
@@ -252,7 +256,7 @@ export default function Navbar() {
                           rel="noopener noreferrer"
                           onClick={() => setMobileOpen(false)}
                           className={`font-body text-lg tracking-wide lowercase flex items-center gap-2 ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-sage-700 hover:text-sage-900' : 'text-muted-foreground hover:text-foreground'
+                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                           }`}
                         >
                           blakearts.org
