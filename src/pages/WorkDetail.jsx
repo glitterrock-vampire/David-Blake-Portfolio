@@ -8,7 +8,7 @@ const projectsData = {
     title: "Melanin Migration",
     subtitle: "Brothers in Arms",
     image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b5b97b634_generated_da364573.png",
-    tags: ["Performance", "Identity", "Brotherhood", "Contemporary Dance"],
+    tags: ["Performance", "Identity", "Brotherhood", "Movement"],
     overview: "This research investigates how professional performers navigate uncertainty, career transition, and wellbeing when traditional performance structures are disrupted. It focuses on skills, forms of support, and collective practices that enable performers—particularly Black male artists working in commercial theatre—to imagine sustainable futures beyond the stage.",
     researchFocus: [
       "How performers prepare for life beyond the stage during periods of disruption.",

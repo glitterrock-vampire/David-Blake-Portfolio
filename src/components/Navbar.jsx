@@ -47,7 +47,7 @@ export default function Navbar() {
                       className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
                         location.pathname === "/work" || workDropdownOpen
                           ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
+                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
                       }`}
                     >
                       {link.label}
@@ -114,7 +114,7 @@ export default function Navbar() {
                       className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
                         location.pathname === "/services" || servicesDropdownOpen
                           ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
+                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
                       }`}
                     >
                       {link.label}
@@ -149,7 +149,7 @@ export default function Navbar() {
                     className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 ${
                       location.pathname === link.path
                         ? "text-foreground"
-                        : isGalleryPage ? "text-white/70 hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
+                        : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.label}

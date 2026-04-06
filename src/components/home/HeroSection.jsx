@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://www.davidpblake.org/images/hero/Photo%2008-12-2025,%2012%2002%2027%20(19).jpg"
+          src="/photos/Photo 08-12-2025, 12 02 27 (19).jpg"
           alt="David Blake"
           className="w-full h-full object-cover"
         />

@@ -1,105 +1,102 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-const VIDEO_URL = "/videos/VIDEO-2026-03-28-20-03-24.mp4";
-const PORTRAIT_URL = "https://www.davidpblake.org/images/hero/Photo%2008-12-2025,%2012%2002%2027%20(19).jpg";
+const PORTRAIT_URL = "/photos/Photo 08-12-2025, 12 02 27 (19).jpg";
 
-const disciplines = [
+const metaItems = [
   "Creative Direction",
   "Choreography",
   "Leadership",
   "Mentorship and Coaching",
 ];
 
-function ProgressList() {
-  const [progress, setProgress] = useState({});
-  const [loaded, setLoaded] = useState([]);
+/* slower, more cinematic name reveal */
+const letterContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.09,
+      delayChildren: 0.35,
+    },
+  },
+};
 
-  useEffect(() => {
-    const timeouts = [];
-    const intervals = [];
+const letterItem = {
+  hidden: {
+    opacity: 0,
+    y: 42,
+    rotateX: -100,
+    filter: "blur(8px)",
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1.4,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
 
-    disciplines.forEach((_, i) => {
-      let p = 0;
+/* slower right-side text reveal */
+const lineContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.28,
+      delayChildren: 2.1,
+    },
+  },
+};
 
-      const timeout = setTimeout(() => {
-        const interval = setInterval(() => {
-          p += Math.random() * 4 + 2;
+const lineItem = {
+  hidden: {
+    opacity: 0,
+    y: 26,
+    filter: "blur(6px)",
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1.15,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
 
-          if (p >= 100) {
-            p = 100;
-            clearInterval(interval);
-            setLoaded(prev => [...prev, i]);
-          }
-
-          setProgress(prev => ({ ...prev, [i]: p }));
-        }, 80);
-
-        intervals.push(interval);
-      }, 400 + i * 1800);
-
-      timeouts.push(timeout);
-    });
-
-    return () => {
-      timeouts.forEach(clearTimeout);
-      intervals.forEach(clearInterval);
-    };
-  }, []);
-
+function AnimatedName() {
   return (
-    <div className="space-y-3 w-full">
-      {disciplines.map((item, i) => {
-        const pct = progress[i] || 0;
-        const done = loaded.includes(i);
-
-        return (
-          <motion.div
-            key={item}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 + i * 0.55 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-1.5 h-1.5">
-              {done ? (
-                <div className="w-1.5 h-1.5 bg-white rounded-full" />
-              ) : pct > 0 ? (
-                <div className="w-1.5 h-1.5 border border-white/50 rounded-full animate-pulse" />
-              ) : (
-                <div className="w-1.5 h-1.5 border border-white/20 rounded-full" />
-              )}
-            </div>
-
-            <span
-              className={`font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase w-44 ${
-                done ? "text-white" : pct > 0 ? "text-white/50" : "text-white/20"
-              }`}
-            >
-              {item}
-            </span>
-
-            <div className="flex-1 h-px bg-white/10 relative overflow-hidden">
-              <motion.div
-                className="absolute inset-y-0 left-0 bg-white"
-                animate={{ width: `${pct}%` }}
-                transition={{ duration: 0.08 }}
-              />
-            </div>
-
-            <span
-              className={`font-mono text-[8px] w-7 text-right ${
-                done ? "text-white" : "text-white/30"
-              }`}
-            >
-              {done ? "100" : Math.floor(pct)}%
-            </span>
-          </motion.div>
-        );
-      })}
-    </div>
+    <motion.h1
+      variants={letterContainer}
+      initial="hidden"
+      animate="show"
+      className="text-[6rem] xl:text-[7.5rem] 2xl:text-[8.5rem] font-black text-white leading-[0.88] tracking-[-0.04em]"
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        transformStyle: "preserve-3d",
+      }}
+    >
+      {"david blake".split("").map((letter, i) => (
+        <motion.span
+          key={`${letter}-${i}`}
+          variants={letterItem}
+          style={{
+            display: "inline-block",
+            whiteSpace: letter === " " ? "pre" : "normal",
+            transformOrigin: "50% 100%",
+            willChange: "transform, opacity, filter",
+          }}
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.h1>
   );
 }
 
@@ -107,7 +104,7 @@ export default function LoadingScreen({ onComplete }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 3000);
+    }, 7200);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -116,142 +113,150 @@ export default function LoadingScreen({ onComplete }) {
     <motion.div
       className="fixed inset-0 z-[200] bg-black overflow-hidden"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1.4, ease: [0.4, 0, 0.2, 1] }}
     >
-
-      {/* LEFT VIDEO */}
-      <div className="absolute inset-y-0 left-0 w-[58%] overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: "blur(1.5px)" }}
-        >
-          <source src={VIDEO_URL} type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-      </div>
-
-      {/* FULL IMAGE WITH LEFT FADE */}
-      <div className="absolute inset-0">
+      {/* background image */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ scale: 1.08, opacity: 0.72 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 6.2, ease: [0.16, 1, 0.3, 1] }}
+      >
         <img
           src={PORTRAIT_URL}
-          alt=""
+          alt="David Blake"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            objectPosition: "center top",
-            WebkitMaskImage: `
-              linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(0,0,0,0.15) 12%,
-                rgba(0,0,0,0.45) 25%,
-                rgba(0,0,0,0.8) 40%,
-                black 55%
-              )
-            `,
-            maskImage: `
-              linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(0,0,0,0.15) 12%,
-                rgba(0,0,0,0.45) 25%,
-                rgba(0,0,0,0.8) 40%,
-                black 55%
-              )
-            `,
-            filter: "blur(0.6px)"
+            objectPosition: "center center",
           }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent" />
+      </motion.div>
 
-      {/* BLEND ZONE */}
-      <div
-        className="absolute inset-y-0 left-[45%] w-[25%] pointer-events-none"
+      {/* soft blend */}
+      <motion.div
+        className="absolute inset-y-0 left-[42%] w-[24%] pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 3, delay: 0.8, ease: "easeOut" }}
         style={{
-          background: "linear-gradient(to right, transparent, rgba(0,0,0,0.25), transparent)",
-          backdropFilter: "blur(6px)"
+          background: "linear-gradient(to right, transparent, rgba(0,0,0,0.18), transparent)",
         }}
       />
 
-      {/* SCANLINES */}
+      {/* scanlines */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 4px)"
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 4px)",
         }}
       />
 
-      {/* MOBILE */}
-      <div className="md:hidden relative z-10 flex items-center justify-center h-full text-white">
-        <h1 className="text-[18vw] leading-none">
-          DAVID<br />BLAKE
-        </h1>
-      </div>
-
-      {/* DESKTOP */}
-      <div className="hidden md:flex relative z-10 h-full">
-        {/* NAME AND DISCIPLINES */}
-        <div className="w-1/2 flex flex-col justify-center px-16">
-          <h1
-            className="text-7xl xl:text-8xl font-black text-white leading-none mb-8"
+      {/* mobile */}
+      <div className="md:hidden relative z-10 flex h-full items-end px-8 pb-16">
+        <div className="w-full">
+          <motion.h1
+            variants={letterContainer}
+            initial="hidden"
+            animate="show"
+            className="text-[18vw] leading-[0.9] mb-5 text-white"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            {"david blake".split("").map((letter, i) => (
+            {"DAVID BLAKE".split("").map((letter, i) => (
               <motion.span
-                key={i}
-                initial={{ opacity: 0, rotateY: 90 }}
-                animate={{ opacity: 1, rotateY: 0 }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                style={{ display: 'inline-block' }}
+                key={`${letter}-${i}`}
+                variants={letterItem}
+                style={{
+                  display: "inline-block",
+                  whiteSpace: letter === " " ? "pre" : "normal",
+                  willChange: "transform, opacity, filter",
+                }}
               >
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
             ))}
-          </h1>
-          
-          {/* DISCIPLINE LIST */}
-          <div className="space-y-3">
-            {[
-              "Creative Direction",
-              "Choreography", 
-              "Leadership",
-              "Mentorship and Coaching"
-            ].map((discipline, i) => (
-              <motion.div
-                key={discipline}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
-                className="flex items-center gap-2"
+          </motion.h1>
+
+          <motion.div
+            variants={lineContainer}
+            initial="hidden"
+            animate="show"
+            className="space-y-2 text-right"
+          >
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
+            >
+              Creative Direction
+            </motion.p>
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
+            >
+              Choreography
+            </motion.p>
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
+            >
+              London / Los Angeles
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* desktop */}
+      <div className="hidden md:flex relative z-10 h-full items-end px-16 xl:px-24 pb-20">
+        <div className="grid w-full grid-cols-2 gap-12 items-end">
+          {/* left: name */}
+          <motion.div
+            className="flex items-end"
+            initial={{ opacity: 0, x: -18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <AnimatedName />
+          </motion.div>
+
+          {/* right: title + location */}
+          <div className="flex justify-end">
+            <motion.div
+              variants={lineContainer}
+              initial="hidden"
+              animate="show"
+              className="max-w-[460px] text-right"
+            >
+              <motion.p
+                variants={lineItem}
+                className="font-mono text-[11px] xl:text-[12px] tracking-[0.32em] uppercase text-white mb-8"
               >
-                <div className="w-1.5 h-1.5 bg-white rounded-full" />
-                <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white">
-                  {discipline}
-                </span>
-              </motion.div>
-            ))}
+                Portfolio / 2026
+              </motion.p>
+
+              <div className="space-y-3 mb-8">
+                {metaItems.map((item) => (
+                  <motion.p
+                    key={item}
+                    variants={lineItem}
+                    className="font-mono text-[12px] xl:text-[13px] tracking-[0.26em] uppercase text-white"
+                  >
+                    {item}
+                  </motion.p>
+                ))}
+              </div>
+
+              <motion.p
+                variants={lineItem}
+                className="font-mono text-[11px] xl:text-[12px] tracking-[0.3em] uppercase text-white"
+              >
+                London / Los Angeles
+              </motion.p>
+            </motion.div>
           </div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div className="w-1/2 flex flex-col justify-end p-16 pb-24">
-          <div className="flex items-center gap-2 mb-8">
-            <div className="w-1.5 h-1.5 bg-white rounded-full" />
-            <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white">
-              Portfolio / 2026 · London / Los Angeles
-            </span>
-          </div>
-          </motion.p>
-        </div>
-
       </div>
     </motion.div>
   );

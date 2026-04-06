@@ -29,7 +29,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <img
-          src="https://media.base44.com/images/public/69cb383c7ed443549328234d/a88d2e3bf_generated_62c23445.png"
+          src="/photos/Photo 14-10-2020, 16 08 01.jpg"
           alt="Background"
           className="w-full h-full object-cover opacity-10"
         />
@@ -81,7 +81,6 @@ export default function Home() {
                 alt="Creative Lab Workshop"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/90" />
             </motion.div>
             <motion.h2
               initial={{ opacity: 0 }}
