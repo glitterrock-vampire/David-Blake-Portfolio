@@ -81,7 +81,7 @@ export default function Home() {
                 alt="Creative Lab Workshop"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/90" />
             </motion.div>
             <motion.h2
               initial={{ opacity: 0 }}

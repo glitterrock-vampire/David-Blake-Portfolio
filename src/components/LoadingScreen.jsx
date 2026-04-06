@@ -199,9 +199,9 @@ export default function LoadingScreen({ onComplete }) {
       {/* DESKTOP */}
       <div className="hidden md:flex relative z-10 h-full">
 
-        {/* LEFT CONTENT */}
+        {/* LEFT CONTENT - REMOVED LOADING EFFECT */}
         <div className="w-1/2 flex flex-col justify-center px-16">
-          <ProgressList />
+          {/* ProgressList component removed */}
         </div>
 
         {/* RIGHT CONTENT */}
