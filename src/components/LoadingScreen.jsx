@@ -198,24 +198,58 @@ export default function LoadingScreen({ onComplete }) {
 
       {/* DESKTOP */}
       <div className="hidden md:flex relative z-10 h-full">
-
-        {/* LEFT CONTENT - REMOVED LOADING EFFECT */}
+        {/* NAME AND DISCIPLINES */}
         <div className="w-1/2 flex flex-col justify-center px-16">
-          {/* ProgressList component removed */}
-        </div>
-
-        {/* RIGHT CONTENT */}
-        <div className="w-1/2 flex flex-col justify-end p-16 pb-24">
           <h1
             className="text-7xl xl:text-8xl font-black text-white leading-none mb-8"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            david<br />blake
+            {"david blake".split("").map((letter, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, rotateY: 90 }}
+                animate={{ opacity: 1, rotateY: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                style={{ display: 'inline-block' }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </motion.span>
+            ))}
           </h1>
+          
+          {/* DISCIPLINE LIST */}
+          <div className="space-y-3">
+            {[
+              "Creative Direction",
+              "Choreography", 
+              "Leadership",
+              "Mentorship and Coaching"
+            ].map((discipline, i) => (
+              <motion.div
+                key={discipline}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
+                className="flex items-center gap-2"
+              >
+                <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white">
+                  {discipline}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/40">
-            Portfolio / 2026 · London / Los Angeles
-          </p>
+        {/* RIGHT CONTENT */}
+        <div className="w-1/2 flex flex-col justify-end p-16 pb-24">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="w-1.5 h-1.5 bg-white rounded-full" />
+            <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white">
+              Portfolio / 2026 · London / Los Angeles
+            </span>
+          </div>
+          </motion.p>
         </div>
 
       </div>
