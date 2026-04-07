@@ -31,7 +31,7 @@ export default function HeroSection() {
             className="text-5xl md:text-7xl font-black text-white leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            david blake
+            David Blake
           </motion.h1>
 
           <motion.div

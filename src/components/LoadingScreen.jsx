@@ -12,7 +12,6 @@ const metaItems = [
   "Mentorship and Coaching",
 ];
 
-/* slower, more cinematic name reveal */
 const letterContainer = {
   hidden: {},
   show: {
@@ -42,7 +41,6 @@ const letterItem = {
   },
 };
 
-/* slower right-side text reveal */
 const lineContainer = {
   hidden: {},
   show: {
@@ -70,19 +68,23 @@ const lineItem = {
   },
 };
 
-function AnimatedName() {
+function AnimatedName({ mobile = false }) {
   return (
     <motion.h1
       variants={letterContainer}
       initial="hidden"
       animate="show"
-      className="text-[6rem] xl:text-[7.5rem] 2xl:text-[8.5rem] font-black text-white leading-[0.88] tracking-[-0.04em]"
+      className={
+        mobile
+          ? "text-[clamp(3rem,14vw,6rem)] leading-[0.92] tracking-[-0.02em] text-white"
+          : "text-[4rem] xl:text-[5rem] 2xl:text-[6rem] font-black text-white leading-[0.88] tracking-normal"
+      }
       style={{
         fontFamily: "'Playfair Display', serif",
         transformStyle: "preserve-3d",
       }}
     >
-      {"david blake".split("").map((letter, i) => (
+      {"David Blake".split("").map((letter, i) => (
         <motion.span
           key={`${letter}-${i}`}
           variants={letterItem}
@@ -127,17 +129,18 @@ export default function LoadingScreen({ onComplete }) {
           alt="David Blake"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            objectPosition: "center center",
+            objectPosition: "58% center",
           }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent" />
+        {/* stronger mobile shading */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent md:from-black/45 md:via-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent md:from-black/35 md:via-transparent" />
       </motion.div>
 
-      {/* soft blend */}
+      {/* soft blend desktop only */}
       <motion.div
-        className="absolute inset-y-0 left-[42%] w-[24%] pointer-events-none"
+        className="hidden md:block absolute inset-y-0 left-[42%] w-[24%] pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 3, delay: 0.8, ease: "easeOut" }}
@@ -156,62 +159,70 @@ export default function LoadingScreen({ onComplete }) {
       />
 
       {/* mobile */}
-      <div className="md:hidden relative z-10 flex h-full items-end px-8 pb-16">
-        <div className="w-full">
-          <motion.h1
-            variants={letterContainer}
-            initial="hidden"
-            animate="show"
-            className="text-[18vw] leading-[0.9] mb-5 text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            {"DAVID BLAKE".split("").map((letter, i) => (
-              <motion.span
-                key={`${letter}-${i}`}
-                variants={letterItem}
-                style={{
-                  display: "inline-block",
-                  whiteSpace: letter === " " ? "pre" : "normal",
-                  willChange: "transform, opacity, filter",
-                }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
-          </motion.h1>
+      <div className="md:hidden relative z-10 flex min-h-screen items-end px-5 sm:px-6 pb-[max(5.5rem,env(safe-area-inset-bottom))]">
+        <div className="w-full -translate-y-14">
 
+          {/* NAME */}
+          <div className="max-w-[85vw]">
+            <AnimatedName mobile />
+          </div>
+
+          {/* META TEXT */}
           <motion.div
             variants={lineContainer}
             initial="hidden"
             animate="show"
-            className="space-y-2 text-right"
+            className="mt-6 space-y-2"
           >
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
+            >
+              Portfolio / 2026
+            </motion.p>
+
             <motion.p
               variants={lineItem}
               className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
             >
               Creative Direction
             </motion.p>
+
             <motion.p
               variants={lineItem}
               className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
             >
               Choreography
             </motion.p>
+
             <motion.p
               variants={lineItem}
               className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
             >
+              Leadership
+            </motion.p>
+
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white"
+            >
+              Mentorship and Coaching
+            </motion.p>
+
+            <motion.p
+              variants={lineItem}
+              className="font-mono text-[10px] tracking-[0.24em] uppercase text-white/90 pt-1"
+            >
               London / Los Angeles
             </motion.p>
           </motion.div>
+
         </div>
       </div>
 
       {/* desktop */}
       <div className="hidden md:flex relative z-10 h-full items-end px-16 xl:px-24 pb-20">
         <div className="grid w-full grid-cols-2 gap-12 items-end">
-          {/* left: name */}
           <motion.div
             className="flex items-end"
             initial={{ opacity: 0, x: -18 }}
@@ -221,7 +232,6 @@ export default function LoadingScreen({ onComplete }) {
             <AnimatedName />
           </motion.div>
 
-          {/* right: title + location */}
           <div className="flex justify-end">
             <motion.div
               variants={lineContainer}

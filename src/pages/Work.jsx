@@ -14,7 +14,7 @@ const projects = [
     title: "Drawing With Light",
     subtitle: "Immersive Performance",
     tags: ["Technology", "Site-Specific", "Community", "Immersive"],
-    image: "/photos/Photo 08-12-2025, 12 02 27 (19).jpg",
+    image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/9a2867c0b_generated_ae68bcb6.png",
   },
   {
     slug: "embodied-code",
