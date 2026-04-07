@@ -29,7 +29,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <img
-          src="/photos/Photo 14-10-2020, 16 08 01.jpg"
+          src="/photos/Photo%2014-10-2020,%2016%2008%2001.jpg"
           alt="Background"
           className="w-full h-full object-cover opacity-10"
         />

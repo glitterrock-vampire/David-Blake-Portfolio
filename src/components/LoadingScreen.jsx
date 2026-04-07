@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-const PORTRAIT_URL = "/photos/Photo 08-12-2025, 12 02 27 (19).jpg";
+const PORTRAIT_URL = "/photos/Photo%2008-12-2025,%2012%2002%2027%20(19).jpg";
 
 const metaItems = [
   "Creative Direction",
