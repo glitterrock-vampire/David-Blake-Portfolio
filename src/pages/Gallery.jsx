@@ -5,16 +5,16 @@ import { X, Play, Pause } from "lucide-react";
 const VIDEO_URL = "/videos/VIDEO-2026-03-28-20-03-24.mp4";
 
 const images = [
-  { src: "/photos/Photo 08-12-2025, 12 02 27 (1).jpg", alt: "Performance Moment" },
-  { src: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg", alt: "Creative Process" },
-  { src: "/photos/Photo 08-12-2025, 12 02 27 (5).jpg", alt: "Dance Rehearsal" },
-  { src: "/photos/Photo 08-12-2025, 12 02 27 (12).jpg", alt: "Stage Performance" },
-  { src: "/photos/Photo 14-10-2020, 16 08 01.jpg", alt: "Workshop Session" },
-  { src: "/photos/Photo 14-10-2020, 16 18 00.jpg", alt: "Teaching Moment" },
-  { src: "/photos/Photo 15-02-2013, 13 52 13.jpg", alt: "Early Career" },
-  { src: "/photos/Photo 28-09-2018, 16 58 35.jpg", alt: "Performance Art" },
-  { src: "/photos/Photo 28-09-2018, 17 08 57.jpg", alt: "Creative Direction" },
-  { src: "/photos/Photo 06-06-2024, 22 01 38.jpg", alt: "Recent Work" },
+  { src: "/photos/Photo%2008-12-2025,%2012%2002%2027%20(1).jpg", alt: "Performance Moment" },
+  { src: "/photos/Photo%2008-12-2025,%2012%2002%2027%20(2).jpg", alt: "Creative Process" },
+  { src: "/photos/Photo%2008-12-2025,%2012%2002%2027%20(5).jpg", alt: "Dance Rehearsal" },
+  { src: "/photos/Photo%2008-12-2025,%2012%2002%2027%20(12).jpg", alt: "Stage Performance" },
+  { src: "/photos/Photo%2014-10-2020,%2016%2008%2001.jpg", alt: "Workshop Session" },
+  { src: "/photos/Photo%2014-10-2020,%2016%2018%2000.jpg", alt: "Teaching Moment" },
+  { src: "/photos/Photo%2015-02-2013,%2013%2052%2013.jpg", alt: "Early Career" },
+  { src: "/photos/Photo%2028-09-2018,%2016%2058%2035.jpg", alt: "Performance Art" },
+  { src: "/photos/Photo%2028-09-2018,%2017%2008%2057.jpg", alt: "Creative Direction" },
+  { src: "/photos/Photo%2006-06-2024,%2022%2001%2038.jpg", alt: "Recent Work" },
   { src: "/photos/embodied-code.png", alt: "Embodied Code" },
   { src: "/photos/the-creative-lab.jpeg", alt: "Creative Lab Workshop" },
 ];
@@ -196,7 +196,10 @@ export default function Gallery() {
               <img
                 src={img.src}
                 alt={img.alt}
+                loading="lazy"
                 className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                decoding="async"
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="absolute inset-0 bg-sage-200/0 group-hover:bg-sage-300/20 transition-colors duration-300" />
             </div>
@@ -227,6 +230,8 @@ export default function Gallery() {
               src={selected.src}
               alt={selected.alt}
               className="max-w-full max-h-[85vh] object-contain"
+              loading="eager"
+              decoding="sync"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
