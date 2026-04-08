@@ -25,47 +25,6 @@ export default function Gallery() {
   const featuredVideoRef = useRef(null);
   const melaninVideoRef = useRef(null);
 
-  // Auto-play videos on scroll
-  useEffect(() => {
-    const videos = [
-      { ref: featuredVideoRef, playingState: isVideoPlaying }
-    ];
-
-    // Only add melaninVideoRef if it exists and has a current element
-    if (melaninVideoRef.current) {
-      videos.push({ ref: melaninVideoRef, playingState: false });
-    }
-
-    const observers = videos.map(({ ref }) => {
-      if (!ref.current) return null;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const video = entry.target;
-            if (video instanceof HTMLVideoElement) {
-              if (entry.isIntersecting) {
-                video.play().catch(err => console.log("Auto-play failed:", err));
-              } else {
-                video.pause();
-              }
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(ref.current);
-      return observer;
-    });
-
-    return () => {
-      observers.forEach(observer => {
-        if (observer) observer.disconnect();
-      });
-    };
-  }, [isVideoPlaying]);
-
   const toggleVideo = () => {
     setIsVideoPlaying(!isVideoPlaying);
   };
@@ -129,7 +88,19 @@ export default function Gallery() {
           transition={{ delay: 0, duration: 0.6 }}
           className="break-inside-avoid mb-1 group"
         >
-          <div className="relative overflow-hidden rounded-lg">
+          <div 
+            className="relative overflow-hidden rounded-lg"
+            onMouseEnter={() => {
+              if (featuredVideoRef.current) {
+                featuredVideoRef.current.play().catch(err => console.log("Play failed:", err));
+              }
+            }}
+            onMouseLeave={() => {
+              if (featuredVideoRef.current) {
+                featuredVideoRef.current.pause();
+              }
+            }}
+          >
             <video
               ref={featuredVideoRef}
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
@@ -160,7 +131,19 @@ export default function Gallery() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="break-inside-avoid mb-1 cursor-pointer group"
         >
-          <div className="relative overflow-hidden rounded-lg">
+          <div 
+            className="relative overflow-hidden rounded-lg"
+            onMouseEnter={() => {
+              if (melaninVideoRef.current) {
+                melaninVideoRef.current.play().catch(err => console.log("Play failed:", err));
+              }
+            }}
+            onMouseLeave={() => {
+              if (melaninVideoRef.current) {
+                melaninVideoRef.current.pause();
+              }
+            }}
+          >
             <video
               ref={melaninVideoRef}
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
@@ -168,7 +151,6 @@ export default function Gallery() {
               muted
               playsInline
               preload="metadata"
-              autoPlay
             >
               <source src="/videos/Melanin Migration .mov" type="video/mp4" />
               <source src="/videos/Melanin Migration .mov" type="video/quicktime" />
