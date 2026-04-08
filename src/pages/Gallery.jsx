@@ -28,9 +28,13 @@ export default function Gallery() {
   // Auto-play videos on scroll
   useEffect(() => {
     const videos = [
-      { ref: featuredVideoRef, playingState: isVideoPlaying },
-      { ref: melaninVideoRef, playingState: false } // Melanin video auto-plays independently
+      { ref: featuredVideoRef, playingState: isVideoPlaying }
     ];
+
+    // Only add melaninVideoRef if it exists and has a current element
+    if (melaninVideoRef.current) {
+      videos.push({ ref: melaninVideoRef, playingState: false });
+    }
 
     const observers = videos.map(({ ref }) => {
       if (!ref.current) return null;
