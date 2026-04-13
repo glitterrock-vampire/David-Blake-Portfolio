@@ -80,7 +80,7 @@ function AnimatedName({ mobile = false }) {
           : "text-[4rem] xl:text-[5rem] 2xl:text-[6rem] font-black text-white leading-[0.88] tracking-normal"
       }
       style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Monsterrat', sans-serif",
         transformStyle: "preserve-3d",
       }}
     >

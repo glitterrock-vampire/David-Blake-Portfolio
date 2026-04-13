@@ -28,7 +28,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
           <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide lowercase ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
-          }`}>
+          }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
             david blake
           </Link>
 
@@ -196,6 +196,7 @@ export default function Navbar() {
                 className={`font-heading text-xl tracking-wide lowercase ${
                   isGalleryPage ? 'text-rust' : 'text-foreground'
                 }`}
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
                 david blake
               </Link>

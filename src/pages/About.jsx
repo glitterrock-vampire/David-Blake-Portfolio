@@ -52,6 +52,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-foreground"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           david blake
         </motion.h1>

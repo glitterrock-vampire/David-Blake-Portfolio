@@ -29,7 +29,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="text-5xl md:text-7xl font-black text-white leading-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             David Blake
           </motion.h1>
