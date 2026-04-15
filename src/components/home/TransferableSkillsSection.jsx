@@ -13,14 +13,14 @@ export default function TransferableSkillsSection() {
   const imageRef = useRef(null);
   const orangeBaseRef = useRef(null);
   const orangeSideRef = useRef(null);
-  const orangeBehindRef = useRef(null);
+  const orangeStepRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 78%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
         defaults: {
@@ -30,71 +30,64 @@ export default function TransferableSkillsSection() {
 
       tl.fromTo(
         quoteRef.current,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.1 }
+        { y: 56, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 }
       )
         .fromTo(
           authorRef.current,
-          { y: 28, opacity: 0 },
+          { y: 24, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.7 },
-          "-=0.55"
+          "-=0.45"
         )
         .fromTo(
           imageWrapRef.current,
-          { y: 70, opacity: 0, scale: 0.94 },
-          { y: 0, opacity: 1, scale: 1, duration: 1.15 },
-          "-=0.95"
-        )
-        .fromTo(
-          orangeBehindRef.current,
-          { x: 60, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1 },
-          "-=1"
+          { y: 48, opacity: 0, scale: 0.96 },
+          { y: 0, opacity: 1, scale: 1, duration: 1.05 },
+          "-=0.8"
         )
         .fromTo(
           orangeBaseRef.current,
-          { y: 80, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9 },
-          "-=1"
+          { y: 60, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.85 },
+          "-=0.9"
         )
         .fromTo(
-          orangeSideRef.current,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9 },
-          "-=0.9"
+          orangeStepRef.current,
+          { y: 70, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.85 },
+          "-=0.75"
         );
 
       gsap.to(imageRef.current, {
-        yPercent: -8,
+        yPercent: -6,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
           scrub: 1.2,
-        },
-      });
-
-      gsap.to(orangeBehindRef.current, {
-        yPercent: -10,
-        xPercent: -3,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
         },
       });
 
       gsap.to(orangeBaseRef.current, {
-        xPercent: 3,
+        xPercent: 2,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.2,
+          scrub: 1.1,
+        },
+      });
+
+      gsap.to(orangeStepRef.current, {
+        yPercent: -4,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.3,
         },
       });
     }, sectionRef);
@@ -103,28 +96,42 @@ export default function TransferableSkillsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-0 bg-black overflow-hidden">
-      <motion.div className="relative w-full bg-black">
-        <div className="relative w-full bg-black min-h-[760px] md:min-h-[880px] overflow-hidden">
-          {/* Orange geometric base shape */}
+    <section ref={sectionRef} className="relative bg-black/70 overflow-hidden">
+      <motion.div className="relative w-full bg-black/80">
+        <div className="relative w-full min-h-[680px] md:min-h-[820px] bg-black/75 overflow-hidden">
+          {/* ORANGE GEOMETRY — aligned stepped corner */}
           <div
             ref={orangeBaseRef}
-            className="absolute bottom-0 left-[7%] w-[73%] h-[110px] md:h-[155px] bg-[#F7934C] z-[1]"
+            className="absolute left-[7.5%] right-[20%] bottom-0 h-[70px] md:h-[110px] bg-[#F7934C] z-[1]"
           />
 
           {/* Orange right block behind image */}
           <div
             ref={orangeSideRef}
-            className="absolute bottom-0 right-0 w-[22%] md:w-[20%] h-[230px] md:h-[285px] bg-[#F7934C] z-[1]"
+            className="absolute bottom-[-50px] right-[0%] w-[30%] md:w-[35%] h-[230px] md:h-[285px] bg-[#F7934C] z-[1]"
           />
 
-          <div className="relative z-[3] grid grid-cols-1 md:grid-cols-[0.95fr_1.15fr] min-h-[760px] md:min-h-[880px]">
-            {/* Left quote block */}
-            <div className="flex items-center justify-center md:justify-start px-8 sm:px-10 md:pl-[7.5vw] md:pr-10 pt-20 md:pt-0">
-              <div className="max-w-[470px]">
+          <div
+            ref={orangeStepRef}
+            className="absolute right-0 bottom-0 w-[20%] h-[170px] md:h-[240px] bg-[#F7934C] z-[2]"
+          />
+
+          {/* CONTENT */}
+          <div className="relative z-[4] grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] min-h-[680px] md:min-h-[820px]">
+            {/* TEXT */}
+            <div className="flex items-center justify-center md:justify-start px-8 sm:px-10 md:pl-[12.5vw] md:pr-6 pt-16 md:pt-0">
+              <div className="max-w-[340px] md:max-w-[360px]">
                 <blockquote
                   ref={quoteRef}
-                  className="text-white font-sans font-extrabold leading-[0.92] tracking-[-0.055em] text-[2.3rem] sm:text-[3rem] md:text-[4.35rem] will-change-transform"
+                  className="
+                    text-white font-sans font-extrabold
+                    leading-[1.05] tracking-[-0.035em]
+                    text-[1.65rem]
+                    sm:text-[1.9rem]
+                    md:text-[2.75rem]
+                    lg:text-[3rem]
+                    will-change-transform
+                  "
                 >
                   <span className="block">“Transferable skills</span>
                   <span className="block">are the bridge to</span>
@@ -136,29 +143,40 @@ export default function TransferableSkillsSection() {
 
                 <p
                   ref={authorRef}
-                  className="mt-8 md:mt-10 text-white font-sans font-extrabold tracking-[-0.04em] text-[1.7rem] sm:text-[2rem] md:text-[3rem] will-change-transform"
+                  className="
+                    mt-6 md:mt-7
+                    text-white font-sans font-extrabold
+                    tracking-[-0.025em]
+                    text-[1.15rem]
+                    sm:text-[1.3rem]
+                    md:text-[1.75rem]
+                    will-change-transform
+                  "
                 >
                   –David Blake
                 </p>
               </div>
             </div>
 
-            {/* Right image block */}
+            {/* IMAGE */}
             <div className="relative flex items-center justify-center md:justify-end px-6 md:px-0">
               <div
-                ref={orangeBehindRef}
-                className="absolute bottom-[110px] md:bottom-[155px] right-0 w-[82%] md:w-[78%] h-[58%] md:h-[64%] bg-[#F7934C] z-[1]"
-              />
-
-              <div
                 ref={imageWrapRef}
-                className="relative z-[3] w-full max-w-[640px] md:w-[82%] aspect-[0.84/1] md:mr-[2.5vw] mt-8 md:mt-0 overflow-hidden will-change-transform"
+                className="
+                  relative z-[5]
+                  w-full max-w-[480px]
+                  md:w-[65%]
+                  aspect-[0.86/1]
+                  md:mr-[0]
+                  mt-4 md:mt-0
+                  overflow-hidden
+                "
               >
                 <img
                   ref={imageRef}
                   src="/photos/david-blake-portrait.jpg"
                   alt="David Blake portrait"
-                  className="w-full h-[108%] object-cover object-center will-change-transform"
+                  className="w-full h-[106%] object-cover object-center"
                 />
               </div>
             </div>

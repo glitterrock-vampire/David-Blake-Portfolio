@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const disciplines = [
   "Creative Direction",
@@ -8,11 +13,31 @@ const disciplines = [
 ];
 
 export default function HeroSection() {
+  const heroImageRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(heroImageRef.current, {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroImageRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.5,
+        },
+      });
+    }, heroImageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-start justify-start overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
+          ref={heroImageRef}
           src="/photos/Photo%2008-12-2025,%2012%2002%2027%20(19).jpg"
           alt="David Blake"
           className="w-full h-full object-cover"
