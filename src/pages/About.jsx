@@ -66,7 +66,7 @@ export default function About() {
         className="max-w-2xl mx-auto mb-20 px-6"
       >
         <img
-          src="/photos/Photo 08-12-2025, 12 02 27 (18).jpg"
+          src="/photos/david-blake-portrait.jpg"
           alt="David Blake - Professional portrait"
           className="w-full object-cover"
         />
