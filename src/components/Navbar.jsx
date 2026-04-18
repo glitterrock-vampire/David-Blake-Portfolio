@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide lowercase ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            david blake
+            David Blake
           </Link>
 
           {/* Desktop Nav */}
@@ -198,7 +198,7 @@ export default function Navbar() {
                 }`}
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                david blake
+                David Blake
               </Link>
               <button onClick={() => setMobileOpen(false)} className={isGalleryPage ? 'text-white' : 'text-foreground'}>
                 <X className="w-6 h-6" strokeWidth={1} />

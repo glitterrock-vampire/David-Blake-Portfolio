@@ -17,7 +17,7 @@ export default function Footer() {
           <Link to="/" className={`font-heading text-lg tracking-wide lowercase block ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            {"david blake".split("").map((letter, i) => (
+            {"David Blake".split("").map((letter, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, rotateY: 90 }}

@@ -54,7 +54,7 @@ export default function About() {
           className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-foreground"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          david blake
+          David Blake
         </motion.h1>
       </div>
 
