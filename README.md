@@ -1,39 +1,55 @@
-**Welcome to your Base44 project** 
+# David Blake Portfolio
 
 **About**
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+This is the official portfolio website for David Blake, showcasing choreography, creative direction, mentoring, and artistic work.
 
-This project contains everything you need to run your app locally.
+**Local Development**
 
-**Edit the code in your local development environment**
-
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+This project contains everything you need to run the app locally for development and testing.
 
 **Prerequisites:** 
 
-1. Clone the repository using the project's Git URL 
+1. Clone the repository using the Git URL
 2. Navigate to the project directory
 3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+4. Create an `.env.local` file and set the required environment variables
 
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
+# Example environment variables
+VITE_APP_NAME=David Blake Portfolio
+VITE_APP_URL=http://localhost:5173
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+# Add any other required environment variables here
 ```
 
 Run the app: `npm run dev`
 
-**Publish your changes**
+**Deployment**
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+This project can be deployed to any static hosting service like:
+- Vercel
+- Netlify
+- GitHub Pages
+- Surge.sh
 
-**Docs & Support**
+**Tech Stack**
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+- React with Vite
+- Tailwind CSS
+- Framer Motion for animations
+- React Router for navigation
+- Lucide React for icons
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+**Development**
+
+- Components are located in `src/components/`
+- Pages are located in `src/pages/`
+- Styles use Tailwind CSS utility classes
+- Images are stored in `public/photos/`
+
+**Support**
+
+For questions about this project, please contact:
+- Email: hello@davidpblake.org
+- GitHub: Create an issue in the repository
