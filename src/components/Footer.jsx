@@ -14,7 +14,7 @@ export default function Footer() {
     }`}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-8 text-center md:text-left">
         <div className="space-y-2">
-          <Link to="/" className={`font-heading text-lg tracking-wide lowercase block ${
+          <Link to="/" className={`font-heading text-lg tracking-wide block ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
             {"David Blake".split("").map((letter, i) => (
