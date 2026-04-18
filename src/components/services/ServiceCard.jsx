@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Clock, ArrowRight } from "lucide-react";
 
 export default function ServiceCard({ service, index }) {
   return (
@@ -7,16 +8,16 @@ export default function ServiceCard({ service, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
-      className="group relative overflow-hidden"
+      className="group relative overflow-hidden cursor-pointer"
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="aspect-[1/1] overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-500" />
       
       {/* Always visible name */}
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
@@ -25,11 +26,23 @@ export default function ServiceCard({ service, index }) {
         </h3>
       </div>
 
-      {/* Hover description */}
-      <div className="absolute inset-0 flex items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <p className="font-body text-base text-white/90 font-semibold leading-relaxed text-center">
+      {/* Hover booking info */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="font-body text-base text-white/90 font-semibold leading-relaxed text-center mb-6">
           {service.description}
         </p>
+        
+        {/* Duration only */}
+        <div className="flex items-center justify-center gap-2 text-sm text-white/80 mb-6">
+          <Clock className="w-4 h-4" />
+          <span>{service.duration}</span>
+        </div>
+
+        {/* Action Button */}
+        <div className="inline-flex items-center gap-2 px-6 py-3 bg-sage-900 text-white rounded-md hover:bg-sage-800 transition-colors duration-200">
+          {service.action}
+          <ArrowRight className="w-4 h-4" />
+        </div>
       </div>
     </motion.div>
   );

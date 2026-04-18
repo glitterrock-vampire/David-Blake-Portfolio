@@ -132,12 +132,76 @@ export default function Navbar() {
                           }`}
                         >
                           <Link
+                            to="/contact?service=choreography"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Choreography Commission
+                          </Link>
+                          <Link
+                            to="/contact?service=creative-direction"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Creative Direction
+                          </Link>
+                          <Link
+                            to="/contact?service=mentoring"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            1:1 Mentoring Session
+                          </Link>
+                          <Link
+                            to="/contact?service=mentoring-package"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Mentoring Package
+                          </Link>
+                          <Link
                             to="/creative-lab"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
                               isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
-                            The Creative Lab
+                            Creative Lab Workshop
+                          </Link>
+                          <Link
+                            to="/contact?service=consultation"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Virtual Consultation
+                          </Link>
+                          <Link
+                            to="/contact?service=academic"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Academic Advisory
+                          </Link>
+                          <Link
+                            to="/contact?service=production"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Production Consultation
+                          </Link>
+                          <Link
+                            to="/contact?service=portfolio-review"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Portfolio Review
                           </Link>
                         </motion.div>
                       )}
