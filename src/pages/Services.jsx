@@ -37,7 +37,7 @@ const services = [
   },
   {
     title: "Creative Lab Workshop",
-    description: "Interactive workshops and professional development sessions supporting emerging and mid-career artists with industry transition and career strategy.",
+    description: "Interactive workshops and professional development sessions supporting emerging and mid-career artists with industry transition, mindset, and sustainable career strategy.",
     duration: "2 hours",
     action: "Request Quote",
     image: "/photos/the-creative-lab.jpeg",

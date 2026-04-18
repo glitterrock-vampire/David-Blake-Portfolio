@@ -68,6 +68,8 @@ export default function Home() {
           </div>
         </section>
 
+        <TransferableSkillsSection />
+
         <section className="py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-12">
             <motion.div
@@ -116,8 +118,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <TransferableSkillsSection />
       </div>
     </div>
   );

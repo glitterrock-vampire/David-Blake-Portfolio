@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import { Calendar, Clock, User, Mail, ArrowRight } from "lucide-react";
 
 const services = {
@@ -48,6 +48,7 @@ const services = {
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const [selectedService, setSelectedService] = useState(searchParams.get('service') || '');
   const [formData, setFormData] = useState({
     name: "",
@@ -59,6 +60,14 @@ export default function Contact() {
   });
 
   const service = services[selectedService];
+
+  // Update selected service when URL parameters change
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam !== selectedService) {
+      setSelectedService(serviceParam || '');
+    }
+  }, [searchParams, selectedService]);
 
   const handleChange = (e) => {
     setFormData({

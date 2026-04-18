@@ -28,7 +28,7 @@ export default function ServiceCard({ service, index }) {
 
       {/* Hover booking info */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <p className="font-body text-base text-white/90 font-semibold leading-relaxed text-center mb-6">
+        <p className="font-body text-base text-white/90 font-bold leading-relaxed text-center mb-6">
           {service.description}
         </p>
         

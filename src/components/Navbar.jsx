@@ -26,7 +26,7 @@ export default function Navbar() {
         isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/80' : 'bg-background/80'
       }`}>
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
-          <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide lowercase ${
+          <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
             David Blake
@@ -257,7 +257,7 @@ export default function Navbar() {
               <Link
                 to="/"
                 onClick={() => setMobileOpen(false)}
-                className={`font-heading text-xl tracking-wide lowercase ${
+                className={`font-heading text-xl tracking-wide ${
                   isGalleryPage ? 'text-rust' : 'text-foreground'
                 }`}
                 style={{ fontFamily: "'Montserrat', sans-serif" }}

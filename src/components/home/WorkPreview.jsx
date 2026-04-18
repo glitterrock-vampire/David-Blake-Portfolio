@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const projects = [
+export const works = [
   {
     slug: "melanin-migration",
     title: "Melanin Migration",
@@ -25,7 +25,7 @@ const projects = [
 export default function WorkPreview() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-1 px-1">
-      {projects.map((project, i) => (
+      {works.map((project, i) => (
         <motion.div
           key={project.slug}
           initial={{ opacity: 0, y: 40 }}

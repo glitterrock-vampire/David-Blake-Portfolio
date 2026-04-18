@@ -43,7 +43,7 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
+          className="font-body text-xs tracking-[0.3em] text-muted-foreground mb-4"
         >
           Portfolio
         </motion.p>
@@ -51,7 +51,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-foreground"
+          className="font-heading text-5xl md:text-7xl tracking-wide text-foreground"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           David Blake
