@@ -168,7 +168,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="border border-border rounded-xl p-8 hover:border-sage-400 transition-all duration-300 hover:shadow-lg"
+              className="border border-border rounded-xl p-8 hover:border-sage-400 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
             >
               <div className="mb-8">
                 <h3 className="font-heading text-2xl tracking-wide text-foreground mb-3">Mentoring Star</h3>
@@ -205,12 +205,14 @@ export default function Services() {
                 </div>
               </div>
               
-              <Link
-                to="/contact?service=mentoring-star"
-                className="w-full block text-center font-body text-sm tracking-widest bg-sage-900 text-white px-6 py-4 rounded-md hover:bg-sage-800 transition-colors duration-200"
-              >
-                Get Started
-              </Link>
+              <div className="mt-auto">
+                <Link
+                  to="/contact?service=mentoring-star"
+                  className="w-full block text-center font-body text-sm tracking-widest bg-black text-white px-6 py-4 rounded-md hover:bg-white hover:text-black border border-black transition-colors duration-200"
+                >
+                  get started
+                </Link>
+              </div>
             </motion.div>
 
             {/* Mentoring Superstar */}
@@ -219,9 +221,9 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="border-2 border-sage-400 rounded-xl p-8 bg-sage-50 relative overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="border-2 border-sage-400 rounded-xl p-8 bg-sage-50 relative overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
             >
-              <div className="absolute top-4 right-4 bg-sage-900 text-white text-xs px-3 py-1 rounded-full font-semibold">
+              <div className="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
                 Best Value
               </div>
               <div className="mb-8">
@@ -235,19 +237,19 @@ export default function Services() {
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-sage-600 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">24</span>
+                  <span className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">24</span>
                   <span className="font-body text-sm text-foreground leading-relaxed">Mentoring Sessions</span>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-sage-600 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
+                  <span className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
                   <span className="font-body text-sm text-foreground leading-relaxed">Bespoke mentoring plan</span>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-sage-600 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
+                  <span className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
                   <span className="font-body text-sm text-foreground leading-relaxed">Priority mentoring support</span>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-sage-600 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
+                  <span className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-body text-sm font-semibold">1</span>
                   <span className="font-body text-sm text-foreground leading-relaxed">Member discounts on one-off bookings</span>
                 </div>
               </div>
@@ -259,12 +261,14 @@ export default function Services() {
                 </div>
               </div>
               
-              <Link
-                to="/contact?service=mentoring-superstar"
-                className="w-full block text-center font-body text-sm tracking-widest bg-sage-900 text-white px-6 py-4 rounded-md hover:bg-sage-800 transition-colors duration-200"
-              >
-                Get Started
-              </Link>
+              <div className="mt-auto">
+                <Link
+                  to="/contact?service=mentoring-superstar"
+                  className="w-full block text-center font-body text-sm tracking-widest bg-black text-white px-6 py-4 rounded-md hover:bg-white hover:text-black border border-black transition-colors duration-200"
+                >
+                  get started
+                </Link>
+              </div>
             </motion.div>
 
             {/* Creative Development Package */}
@@ -273,7 +277,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="border border-border rounded-xl p-8 hover:border-sage-400 transition-all duration-300 hover:shadow-lg"
+              className="border border-border rounded-xl p-8 hover:border-sage-400 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
             >
               <div className="mb-8">
                 <h3 className="font-heading text-2xl tracking-wide text-foreground mb-3">Creative Development</h3>
@@ -310,12 +314,14 @@ export default function Services() {
                 </div>
               </div>
               
-              <Link
-                to="/contact?service=creative-development"
-                className="w-full block text-center font-body text-sm tracking-widest bg-sage-900 text-white px-6 py-4 rounded-md hover:bg-sage-800 transition-colors duration-200"
-              >
-                Get Started
-              </Link>
+              <div className="mt-auto">
+                <Link
+                  to="/contact?service=creative-development"
+                  className="w-full block text-center font-body text-sm tracking-widest bg-black text-white px-6 py-4 rounded-md hover:bg-white hover:text-black border border-black transition-colors duration-200"
+                >
+                  get started
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
