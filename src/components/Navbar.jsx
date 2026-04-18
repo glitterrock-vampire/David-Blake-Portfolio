@@ -156,12 +156,12 @@ export default function Navbar() {
                             1:1 Mentoring Session
                           </Link>
                           <Link
-                            to="/contact?service=mentoring-package"
+                            to="/services#payment-plans"
                             className={`block px-4 py-3 font-body text-sm transition-colors ${
                               isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
-                            Mentoring Package
+                            Mentoring Packages
                           </Link>
                           <Link
                             to="/creative-lab"

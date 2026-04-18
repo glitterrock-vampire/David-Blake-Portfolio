@@ -19,11 +19,6 @@ const services = {
     description: "Personalized mentoring and career coaching for artists and creative practitioners. Structured guidance, reflection, and practical tools to strengthen professional identity.",
     duration: "1 hour"
   },
-  "mentoring-package": {
-    title: "Mentoring Package",
-    description: "Comprehensive mentoring package including multiple sessions, portfolio review, and ongoing support for sustainable creative career development.",
-    duration: "3 sessions"
-  },
   consultation: {
     title: "Virtual Consultation",
     description: "In-depth virtual consultation for artistic and strategic development. Perfect for organizations and individuals seeking expert guidance on creative projects.",
@@ -43,6 +38,21 @@ const services = {
     title: "Portfolio Review",
     description: "Professional portfolio review and feedback for artists and creative practitioners. Strengthen your presentation and showcase your work effectively.",
     duration: "1 hour"
+  },
+  "mentoring-star": {
+    title: "Mentoring Star",
+    description: "Monthly mentoring for creative & artistic development. Perfect for artists making career transitions or building a new creative practice. Includes 12 mentoring sessions, bespoke mentoring plan, and member discounts.",
+    duration: "12 months"
+  },
+  "mentoring-superstar": {
+    title: "Mentoring Superstar",
+    description: "Intense mentoring for creative & artistic development. Ideal for developing a new creative practice. Includes 24 mentoring sessions, bespoke mentoring plan, and priority support.",
+    duration: "12 months"
+  },
+  "creative-development": {
+    title: "Creative Development Package",
+    description: "3-session package for project development. Perfect for artists starting new creative work. Includes development sessions, portfolio review, strategic planning, and follow-up support.",
+    duration: "3 sessions"
   }
 };
 
