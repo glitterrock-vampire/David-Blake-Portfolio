@@ -15,6 +15,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [workDropdownOpen, setWorkDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
   const location = useLocation();
   const isWorkPage = location.pathname === '/work';
   const isCreativeLabPage = location.pathname === '/creative-lab';
@@ -278,75 +280,135 @@ export default function Navbar() {
                 >
                   {link.label === "work" ? (
                     <div className="flex flex-col items-center gap-4">
-                      <Link
-                        to={link.path}
-                        onClick={() => setMobileOpen(false)}
-                        className={`font-heading text-3xl tracking-wide lowercase ${
+                      <button
+                        onClick={() => setMobileWorkOpen(!mobileWorkOpen)}
+                        className={`font-heading text-3xl tracking-wide lowercase flex items-center gap-2 ${
                           isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
                         }`}
                       >
                         {link.label}
-                      </Link>
-                      <div className="flex flex-col items-center gap-2 ml-8">
-                        <Link
-                          to="/work/melanin-migration"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Melanin Migration
-                        </Link>
-                        <Link
-                          to="/work/drawing-with-light"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Drawing With Light
-                        </Link>
-                        <Link
-                          to="/work/embodied-code"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Embodied Code
-                        </Link>
-                        <a
-                          href="https://www.blakearts.org/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase flex items-center gap-2 ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          blakearts.org
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      </div>
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileWorkOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileWorkOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex flex-col items-center gap-2 ml-8"
+                          >
+                            <Link
+                              to="/work/melanin-migration"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Melanin Migration
+                            </Link>
+                            <Link
+                              to="/work/drawing-with-light"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Drawing With Light
+                            </Link>
+                            <Link
+                              to="/work/embodied-code"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Embodied Code
+                            </Link>
+                            <a
+                              href="https://www.blakearts.org/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase flex items-center gap-2 ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              blakearts.org
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : link.label === "services" ? (
                     <div className="flex flex-col items-center gap-4">
-                      <Link
-                        to="/services"
-                        onClick={() => setMobileOpen(false)}
-                        className="font-heading text-3xl tracking-wide lowercase text-foreground"
+                      <button
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className={`font-heading text-3xl tracking-wide lowercase flex items-center gap-2 ${
+                          isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
+                        }`}
                       >
                         {link.label}
-                      </Link>
-                      <div className="flex flex-col items-center gap-2 ml-8">
-                        <Link
-                          to="/creative-lab"
-                          onClick={() => setMobileOpen(false)}
-                          className="font-body text-lg tracking-wide lowercase text-muted-foreground hover:text-foreground"
-                        >
-                          The Creative Lab
-                        </Link>
-                      </div>
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex flex-col items-center gap-2 ml-8"
+                          >
+                            <Link
+                              to="/contact?service=choreography"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Choreography Commission
+                            </Link>
+                            <Link
+                              to="/contact?service=creative-direction"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Creative Direction
+                            </Link>
+                            <Link
+                              to="/contact?service=mentoring"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              1:1 Mentoring Session
+                            </Link>
+                            <Link
+                              to="/services#payment-plans"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Mentoring Packages
+                            </Link>
+                            <Link
+                              to="/creative-lab"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              The Creative Lab
+                            </Link>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : (
                     <Link
