@@ -32,7 +32,7 @@ export default function About() {
         className="max-w-2xl mx-auto mb-20 px-6"
       >
         <img
-          src="/photos/david-blake-portrait.jpg"
+          src="/photos/WhatsApp Image 2026-05-31 at 01.57.22.jpeg"
           alt="David Blake - Professional portrait"
           className="w-full object-cover"
         />
