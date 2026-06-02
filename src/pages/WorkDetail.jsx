@@ -175,6 +175,9 @@ export default function WorkDetail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
+              <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                {project.subtitle}
+              </h2>
               <p className="font-body text-base leading-relaxed text-muted-foreground font-light">
                 {project.blurb}
               </p>
@@ -187,6 +190,9 @@ export default function WorkDetail() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
+                <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                  {project.subtitle}
+                </h2>
                 <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
                   {project.overview}
                 </p>
