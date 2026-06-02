@@ -9,7 +9,7 @@ const projectsData = {
     subtitle: "Brothers in Arms",
     image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b5b97b634_generated_da364573.png",
     tags: ["Performance", "Identity", "Brotherhood", "Movement"],
-    overview: "This research investigates how professional performers navigate uncertainty, career transition, and wellbeing when traditional performance structures are disrupted. It focuses on skills, forms of support, and collective practices that enable performers—particularly Black male artists working in commercial theatre—to imagine sustainable futures beyond the stage.",
+    overview: "Brothers in Arms follows six Black male dancers as they navigate identity, brotherhood, and survival in a shifting world—finding strength in unity, movement, and shared purpose.",
     researchFocus: [
       "How performers prepare for life beyond the stage during periods of disruption.",
       "The role of peer-led, embodied creative practice in supporting wellbeing and resilience.",
