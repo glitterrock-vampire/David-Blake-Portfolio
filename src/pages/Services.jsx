@@ -85,7 +85,7 @@ export default function Services() {
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
           {services.map((service, i) => (
-            <div key={service.title}>
+            <div key={service.title} className={service.title === "Creative Lab Workshop" ? "md:col-start-2" : ""}>
               {service.title === "Creative Lab Workshop" ? (
                 <Link to="/creative-lab">
                   <ServiceCard service={service} index={i} />
