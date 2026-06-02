@@ -4,28 +4,52 @@ import ServiceCard from "../components/services/ServiceCard";
 
 const services = [
   {
-    title: "Choreography Commission",
-    description: "Original choreography and movement direction for performances, events, and productions. Creating compelling work through storytelling, musicality, and physical language.",
+    title: "Creative Direction & Choreography",
+    description: "Creating meaningful movement experiences that connect storytelling, performance, and audience engagement.",
     duration: "Custom",
     action: "Request Quote",
     image: "/photos/Photo 14-10-2020, 16 08 01.jpg",
     link: "/contact?service=choreography"
   },
   {
-    title: "Creative Direction",
-    description: "Strategic vision and artistic leadership for projects across stage, screen, and digital platforms. From concept to execution, shaping cohesive and impactful creative outcomes.",
-    duration: "Project-based",
+    title: "Education & Training",
+    description: "Delivering dance training, workshops, masterclasses, and professional development that build technical excellence, artistic confidence, and career readiness.",
+    duration: "Custom",
     action: "Request Quote",
     image: "/photos/Photo 28-09-2018, 16 58 35.jpg",
     link: "/contact?service=creative-direction"
   },
   {
-    title: "1:1 Mentoring Session",
-    description: "Personalized mentoring and career coaching for artists and creative practitioners. Structured guidance, reflection, and practical tools to strengthen professional identity.",
+    title: "Mentoring & Artist Development",
+    description: "Helping creative professionals navigate transition, unlock potential, and build sustainable careers.",
     duration: "1 hour",
     action: "Request Quote",
     image: "/photos/Photo 14-10-2020, 16 18 00.jpg",
     link: "/contact?service=mentoring"
+  },
+  {
+    title: "Consultancy & Advisory",
+    description: "Bringing insight, experience, and strategic thinking to educational and creative organisations.",
+    duration: "1 hour",
+    action: "Request Quote",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (19).jpg",
+    link: "/contact?service=consultation"
+  },
+  {
+    title: "Speaking & Professional Development",
+    description: "Delivering keynote presentations, talks, workshops, and professional development sessions on leadership, creativity, purpose, career transition, and personal growth.",
+    duration: "Custom",
+    action: "Request Quote",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (12).jpg",
+    link: "/contact?service=academic"
+  },
+  {
+    title: "Community & Cultural Engagement",
+    description: "Creating programmes and experiences that foster wellbeing, connection, confidence, and active participation across diverse communities.",
+    duration: "Custom",
+    action: "Request Quote",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg",
+    link: "/contact?service=production"
   },
   {
     title: "Creative Lab Workshop",
@@ -34,38 +58,6 @@ const services = [
     action: "Request Quote",
     image: "/photos/the-creative-lab.jpeg",
     link: "/creative-lab"
-  },
-  {
-    title: "Virtual Consultation",
-    description: "In-depth virtual consultation for artistic and strategic development. Perfect for organizations and individuals seeking expert guidance on creative projects.",
-    duration: "1 hour",
-    action: "Request Quote",
-    image: "/photos/Photo 08-12-2025, 12 02 27 (19).jpg",
-    link: "/contact?service=consultation"
-  },
-  {
-    title: "Academic Advisory",
-    description: "External advisory support for higher education and creative organisations, including programme validation, curriculum development, and quality enhancement.",
-    duration: "Custom",
-    action: "Request Quote",
-    image: "/photos/Photo 08-12-2025, 12 02 27 (12).jpg",
-    link: "/contact?service=academic"
-  },
-  {
-    title: "Production Consultation",
-    description: "Creative production and project management for small to large-scale artistic projects. From planning to execution and post-production support.",
-    duration: "Custom",
-    action: "Request Quote",
-    image: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg",
-    link: "/contact?service=production"
-  },
-  {
-    title: "Portfolio Review",
-    description: "Professional portfolio review and feedback for artists and creative practitioners. Strengthen your presentation and showcase your work effectively.",
-    duration: "1 hour",
-    action: "Request Quote",
-    image: "/photos/Photo 15-02-2013, 13 52 13.jpg",
-    link: "/contact?service=portfolio-review"
   }
 ];
 
