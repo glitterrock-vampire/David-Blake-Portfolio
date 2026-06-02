@@ -181,6 +181,17 @@ export default function WorkDetail() {
             </motion.div>
           ) : (
             <>
+              {/* Overview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
+                  {project.overview}
+                </p>
+              </motion.div>
+
               {/* Research Focus */}
               {project.researchFocus && project.researchFocus.length > 0 && (
                 <motion.div
