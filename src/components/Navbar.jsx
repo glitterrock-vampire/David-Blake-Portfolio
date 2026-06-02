@@ -139,7 +139,7 @@ export default function Navbar() {
                               isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
-                            Choreography Commission
+                            Creative Direction & Choreography
                           </Link>
                           <Link
                             to="/contact?service=creative-direction"
@@ -147,7 +147,7 @@ export default function Navbar() {
                               isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
-                            Creative Direction
+                            Education & Training
                           </Link>
                           <Link
                             to="/contact?service=mentoring"
@@ -155,7 +155,31 @@ export default function Navbar() {
                               isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                             }`}
                           >
-                            1:1 Mentoring Session
+                            Mentoring & Artist Development
+                          </Link>
+                          <Link
+                            to="/contact?service=consultation"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Consultancy & Advisory
+                          </Link>
+                          <Link
+                            to="/contact?service=academic"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Speaking & Professional Development
+                          </Link>
+                          <Link
+                            to="/contact?service=production"
+                            className={`block px-4 py-3 font-body text-sm transition-colors ${
+                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Community & Cultural Engagement
                           </Link>
                           <Link
                             to="/creative-lab"
@@ -164,38 +188,6 @@ export default function Navbar() {
                             }`}
                           >
                             Creative Lab Workshop
-                          </Link>
-                          <Link
-                            to="/contact?service=consultation"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Virtual Consultation
-                          </Link>
-                          <Link
-                            to="/contact?service=academic"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Academic Advisory
-                          </Link>
-                          <Link
-                            to="/contact?service=production"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Production Consultation
-                          </Link>
-                          <Link
-                            to="/contact?service=portfolio-review"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Portfolio Review
                           </Link>
                         </motion.div>
                       )}
@@ -360,7 +352,7 @@ export default function Navbar() {
                                 isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                               }`}
                             >
-                              Choreography Commission
+                              Creative Direction & Choreography
                             </Link>
                             <Link
                               to="/contact?service=creative-direction"
@@ -369,7 +361,7 @@ export default function Navbar() {
                                 isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                               }`}
                             >
-                              Creative Direction
+                              Education & Training
                             </Link>
                             <Link
                               to="/contact?service=mentoring"
@@ -378,7 +370,34 @@ export default function Navbar() {
                                 isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                               }`}
                             >
-                              1:1 Mentoring Session
+                              Mentoring & Artist Development
+                            </Link>
+                            <Link
+                              to="/contact?service=consultation"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Consultancy & Advisory
+                            </Link>
+                            <Link
+                              to="/contact?service=academic"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Speaking & Professional Development
+                            </Link>
+                            <Link
+                              to="/contact?service=production"
+                              onClick={() => setMobileOpen(false)}
+                              className={`font-body text-lg tracking-wide lowercase ${
+                                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
+                              }`}
+                            >
+                              Community & Cultural Engagement
                             </Link>
                             <Link
                               to="/creative-lab"
@@ -387,7 +406,7 @@ export default function Navbar() {
                                 isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
                               }`}
                             >
-                              The Creative Lab
+                              Creative Lab Workshop
                             </Link>
                           </motion.div>
                         )}
