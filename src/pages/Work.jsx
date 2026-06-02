@@ -8,6 +8,7 @@ const projects = [
     subtitle: "Brothers in Arms",
     tags: ["Performance", "Identity", "Brotherhood", "Movement"],
     image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b5b97b634_generated_da364573.png",
+    blurb: "Brothers in Arms follows six Black male dancers as they navigate identity, brotherhood, and survival in a shifting world—finding strength in unity, movement, and shared purpose.",
   },
   {
     slug: "drawing-with-light",

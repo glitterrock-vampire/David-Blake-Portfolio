@@ -9,15 +9,7 @@ const projectsData = {
     subtitle: "Brothers in Arms",
     image: "https://media.base44.com/images/public/69cb383c7ed443549328234d/b5b97b634_generated_da364573.png",
     tags: ["Performance", "Identity", "Brotherhood", "Movement"],
-    overview: "Brothers in Arms follows six Black male dancers as they navigate identity, brotherhood, and survival in a shifting world—finding strength in unity, movement, and shared purpose.",
-    researchFocus: [
-      "How performers prepare for life beyond the stage during periods of disruption.",
-      "The role of peer-led, embodied creative practice in supporting wellbeing and resilience.",
-      "How collective reflection and movement-based processes support career reorientation.",
-      "Sustainable, non-clinical models of support within cultural labour contexts.",
-    ],
-    approach: "The research adopts a practice-based and reflexive approach, using creative process as a method of inquiry. Qualitative reflection on embodied practice, dialogue, and shared authorship is used to generate insight into professional experience, wellbeing, and future planning.",
-    futureDirection: "The long-term aim is to adapt these peer-led, embodied practices into accessible models that support wellbeing, skills development, and future planning across professional, educational, and community contexts.",
+    blurb: "Brothers in Arms follows six Black male dancers as they navigate identity, brotherhood, and survival in a shifting world—finding strength in unity, movement, and shared purpose.",
   },
   "drawing-with-light": {
     title: "Drawing With Light",
@@ -176,71 +168,86 @@ export default function WorkDetail() {
             </motion.div>
           )}
 
-          {/* Overview */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
-              Research Overview
-            </h2>
-            <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
-              {project.overview}
-            </p>
-          </motion.div>
-
-          {/* Research Focus */}
-          {project.researchFocus.length > 0 && (
+          {/* Blurb */}
+          {project.blurb ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
-                Research Focus
-              </h2>
-              <ul className="space-y-3">
-                {project.researchFocus.map((item, i) => (
-                  <li key={i} className="font-body text-sm leading-relaxed text-muted-foreground font-light flex gap-3">
-                    <span className="text-foreground mt-0.5">—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-
-          {/* Approach */}
-          {project.approach && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
-                Research Approach
-              </h2>
-              <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
-                {project.approach}
+              <p className="font-body text-base leading-relaxed text-muted-foreground font-light">
+                {project.blurb}
               </p>
             </motion.div>
-          )}
+          ) : (
+            <>
+              {/* Overview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                  Research Overview
+                </h2>
+                <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
+                  {project.overview}
+                </p>
+              </motion.div>
 
-          {/* Future */}
-          {project.futureDirection && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
-                Future Direction
-              </h2>
-              <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
-                {project.futureDirection}
-              </p>
-            </motion.div>
+              {/* Research Focus */}
+              {project.researchFocus && project.researchFocus.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                    Research Focus
+                  </h2>
+                  <ul className="space-y-3">
+                    {project.researchFocus.map((item, i) => (
+                      <li key={i} className="font-body text-sm leading-relaxed text-muted-foreground font-light flex gap-3">
+                        <span className="text-foreground mt-0.5">—</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+
+              {/* Approach */}
+              {project.approach && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                    Research Approach
+                  </h2>
+                  <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
+                    {project.approach}
+                  </p>
+                </motion.div>
+              )}
+
+              {/* Future */}
+              {project.futureDirection && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="font-heading text-2xl md:text-3xl lowercase tracking-wide text-foreground mb-6">
+                    Future Direction
+                  </h2>
+                  <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
+                    {project.futureDirection}
+                  </p>
+                </motion.div>
+              )}
+            </>
           )}
         </div>
       </section>
