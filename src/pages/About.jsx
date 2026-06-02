@@ -1,39 +1,5 @@
 import { motion } from "framer-motion";
-
-const sections = [
-  {
-    title: "Performance",
-    content: "As a performer, he has appeared in award-winning productions, including playing Banzai in Disney's The Lion King. His career also includes work as a Principal Dancer with the National Dance Theatre Company of Jamaica (NDTC) and with professional dance companies in Southern California, alongside extensive credits across film, television, and theatre. Most recently, he appeared in Universal's Wicked for Good (2025)."
-  },
-  {
-    title: "Creative Practice",
-    content: "His creative practice includes choreography, movement direction, and large-scale collaborative projects integrating movement, technology, and community engagement. This work often explores themes of identity, connection, and resilience. Melanin Migration: Brothers in Arms was nominated by One Dance UK and presented at the ScreenMiami Festival at the Pérez Art Museum Miami."
-  },
-  {
-    title: "Education & Leadership",
-    content: "Alongside his creative output, he is an experienced educator and institutional leader. As the inaugural Director of Dance and Musical Theatre at Urdang City St George's, University of London, he helped shape curriculum and mentorship frameworks that align professional training with current industry standards and practice. His teaching has extended internationally across conservatoires, universities, and professional schools."
-  },
-  {
-    title: "Education & Qualifications",
-    content: "He holds a BA in Business Administration from California State University and an MA in Arts Administration and Cultural Policy, grounding his creative and educational work in organisational leadership, cultural strategy, and sustainable practice."
-  },
-  {
-    title: "Awards & Funding",
-    content: "His work has been recognised with the Best Teacher of Performing Arts honour from the Black British Theatre Awards, alongside funding from Arts Council England and the University of London Federation, acknowledging both creative and educational impact."
-  },
-  {
-    title: "Blake Arts",
-    content: "Through Blake Arts and the Blake Arts Dance Company, he supports emerging, mid-career, and transitioning artists through periods of growth and reinvention. This work includes mentorship, professional development, creative production, and strategic guidance grounded in real-world industry experience."
-  },
-  {
-    title: "Public Engagement",
-    content: "He delivers talks and presentations on Kingdom Economics through ICAN Community Church, exploring leadership, purpose, stewardship, and long-term thinking within creative and professional contexts."
-  },
-  {
-    title: "How He Works",
-    content: "At the core of his work is a people-centred, integrative approach grounded in the belief that meaningful creative work, strong professional lives, and thriving communities are built together."
-  },
-];
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -45,7 +11,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           className="font-body text-xs tracking-[0.3em] text-muted-foreground mb-4"
         >
-          Portfolio
+          About David Blake
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +38,7 @@ export default function About() {
         />
       </motion.div>
 
-      {/* Intro */}
+      {/* Bio */}
       <div className="max-w-3xl mx-auto px-6 mb-20">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -80,41 +46,116 @@ export default function About() {
           viewport={{ once: true }}
           className="font-body text-base leading-relaxed text-muted-foreground font-light"
         >
-          David Blake is an international creative director, choreographer, educator, and leadership practitioner, with a strong foundation in mentorship and professional development. His work spans stage, screen, education, and public space, shaped by sustained experience across performance, creation, and institutional leadership.
+          David Blake is a creative director, educator, mentor, choreographer, and performer with over two decades of international experience across performance, leadership, higher education, and artist development.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
+        >
+          Widely recognised for his 17-year career with Disney's The Lion King and as a former Principal Dancer with the National Dance Theatre Company of Jamaica (NDTC), David's work spans stage, screen, education, and community engagement. His recent creative credits include Wicked: For Good, BBC productions, EE, and Ernst & Young.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
+        >
+          As the former Director of Dance & Musical Theatre at Urdang, City St George's University of London, David has led programmes, developed emerging talent, and supported artists and organisations in navigating growth, change, and opportunity.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
+        >
+          Through Blake Arts, he creates training programmes, mentorship opportunities, leadership initiatives, and creative projects that support artists, educators, organisations, and communities.
         </motion.p>
       </div>
 
-      {/* Sections */}
-      <div className="max-w-3xl mx-auto px-6 space-y-16">
-        {sections.map((section, i) => (
-          <motion.div
-            key={section.title}
+      {/* Professional Practice */}
+      <div className="max-w-3xl mx-auto px-6 mb-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-8 lowercase"
+        >
+          Professional Practice
+        </motion.h2>
+        <motion.ul
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="space-y-4"
+        >
+          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
+            <span className="text-foreground">•</span>
+            <span>Creative Direction & Choreography</span>
+          </li>
+          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
+            <span className="text-foreground">•</span>
+            <span>Education & Leadership</span>
+          </li>
+          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
+            <span className="text-foreground">•</span>
+            <span>Mentoring & Artist Development</span>
+          </li>
+          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
+            <span className="text-foreground">•</span>
+            <span>Performance</span>
+          </li>
+          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
+            <span className="text-foreground">•</span>
+            <span>Speaking & Consultancy</span>
+          </li>
+        </motion.ul>
+      </div>
+
+      {/* Let's Connect */}
+      <div className="max-w-3xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="border-t border-border pt-10"
+        >
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-6 lowercase"
           >
-            <h2 className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-6 lowercase">
-              {section.title}
-            </h2>
-            <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
-              {section.content}
-            </p>
+            Let's Connect
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="font-body text-base leading-relaxed text-muted-foreground font-light mb-8"
+          >
+            David is available for speaking engagements, workshops, artist development programmes, consultancy, creative projects, and educational partnerships.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <Link
+              to="/contact"
+              className="inline-block font-body text-sm tracking-widest lowercase border border-foreground px-8 py-3 text-foreground hover:bg-sage hover:text-background transition-all duration-300"
+            >
+              get in touch
+            </Link>
           </motion.div>
-        ))}
-      </div>
-
-      {/* Training Note */}
-      <div className="max-w-3xl mx-auto px-6 mt-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="border-t border-border pt-10"
-        >
-          <p className="font-body text-sm text-muted-foreground font-light leading-relaxed">
-            Beyond institutional settings, he delivers audition intensives and professional training programmes that prepare artists for employment in the West End and international markets. This work focuses on technical excellence, professional literacy, audition strategy, and the adaptability required to navigate careers across performing and commercial sectors.
-          </p>
         </motion.div>
       </div>
     </div>
