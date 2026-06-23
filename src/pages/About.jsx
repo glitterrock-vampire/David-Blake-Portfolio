@@ -9,9 +9,9 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="font-body text-xs tracking-[0.3em] text-muted-foreground mb-4"
+          className="font-body text-sm tracking-[0.3em] text-muted-foreground mb-4"
         >
-          About David Blake
+          About
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
