@@ -181,21 +181,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <div className="flex items-center justify-center gap-4 mb-5">
-                  <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground">
-                    Work with David
-                  </p>
-                  <Link
-                    to="/work"
-                    className="font-body text-xs tracking-widest lowercase text-foreground/60 hover:text-foreground transition-colors"
-                  >
-                    view work →
-                  </Link>
-                </div>
-                <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl leading-tight text-foreground mb-6">
+                <p className="font-body text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+                  Work with David
+                </p>
+                <h2 className="font-heading text-5xl md:text-7xl lg:text-8xl leading-tight text-foreground mb-8">
                   Clear pathways for creative, personal, and organisational growth.
                 </h2>
-                <p className="font-body text-base md:text-lg leading-relaxed text-muted-foreground font-light max-w-3xl mx-auto">
+                <p className="font-body text-lg md:text-xl leading-relaxed text-muted-foreground font-light max-w-3xl mx-auto">
                   Blake Arts brings together performance expertise, educational leadership,
                   mentoring, and strategic thinking. Choose the area that fits your next
                   move, or start with a conversation and shape the right approach together.
@@ -211,24 +203,24 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.65, delay: index * 0.1 }}
-                  className="group relative bg-background border border-foreground/10 p-8 md:p-10 hover:border-foreground/30 transition-all duration-300 hover:shadow-xl"
+                  className="group relative bg-background border border-foreground/10 p-10 md:p-12 hover:border-foreground/30 transition-all duration-300 hover:shadow-xl"
                 >
-                  <div className="absolute top-6 right-6 font-body text-xs tracking-[0.28em] uppercase text-muted-foreground/50">
+                  <div className="absolute top-8 right-8 font-body text-sm tracking-[0.28em] uppercase text-muted-foreground/50">
                     0{index + 1}
                   </div>
                   <div className="relative z-10">
-                    <h3 className="font-heading text-2xl md:text-3xl leading-tight mb-5 text-foreground group-hover:text-foreground/90 transition-colors">
+                    <h3 className="font-heading text-3xl md:text-4xl leading-tight mb-6 text-foreground group-hover:text-foreground/90 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="font-body text-sm md:text-base leading-relaxed text-muted-foreground font-light mb-8">
+                    <p className="font-body text-base md:text-lg leading-relaxed text-muted-foreground font-light mb-10">
                       {service.description}
                     </p>
                     <Link
                       to={service.link}
-                      className="font-body text-sm tracking-widest lowercase inline-flex items-center gap-2 text-foreground group-hover:gap-3 transition-all duration-300"
+                      className="font-body text-base tracking-widest lowercase inline-flex items-center gap-2 text-foreground group-hover:gap-3 transition-all duration-300"
                     >
                       explore this work
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </Link>
