@@ -6,10 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const disciplines = [
-  "Creative Direction",
-  "Choreography",
-  "Leadership",
-  "Mentorship and Coaching",
+  "Creative Leadership",
+  "Movement Direction",
+  "Mentorship",
+  "Strategic Insight",
 ];
 
 export default function HeroSection() {
@@ -46,23 +46,40 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 pt-48 md:pt-64">
-        <div className="max-w-2xl space-y-6 text-left">
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 pt-44 md:pt-60 pb-24">
+        <div className="max-w-3xl space-y-7 text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="font-body text-xs md:text-sm uppercase tracking-[0.34em] text-white/70"
+          >
+            Expertise. Leadership. Insight. Transformation.
+          </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-black text-white leading-tight"
+            transition={{ delay: 0.12, duration: 0.9, ease: "easeOut" }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95]"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             David Blake
           </motion.h1>
 
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.24, duration: 0.7 }}
+            className="font-heading text-3xl md:text-5xl leading-tight text-white"
+          >
+            Creative leadership for artists, organisations, and ideas in motion.
+          </motion.h2>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+            transition={{ delay: 0.36, duration: 0.7 }}
             className="flex flex-wrap items-center gap-2 md:gap-3"
           >
             {disciplines.map((d, i) => (
@@ -80,12 +97,31 @@ export default function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-            className="text-base md:text-lg text-white/70 leading-relaxed font-body font-light"
+            transition={{ delay: 0.48, duration: 0.7 }}
+            className="text-base md:text-lg text-white/75 leading-relaxed font-body font-light max-w-2xl"
           >
-            David Blake is a choreographer and creative leader producing work for stage, screen, and institutions while mentoring artists toward sustainable creative careers. Through Blake Arts, he cultivates the next generation of dancers through training, mentorship, and performance.
+            I help people and organisations turn creative experience into clearer thinking, stronger leadership, and meaningful change. Sometimes through dance. Sometimes through education, mentoring, consultancy, and the work that happens beyond the stage.
           </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="flex flex-col sm:flex-row gap-4 pt-3"
+          >
+            <a
+              href="#work-with-david"
+              className="font-body text-sm tracking-widest lowercase bg-white text-black px-8 py-3 text-center hover:bg-sage hover:text-background transition-all duration-300"
+            >
+              work with david
+            </a>
+            <a
+              href="/contact"
+              className="font-body text-sm tracking-widest lowercase border border-white/70 text-white px-8 py-3 text-center hover:bg-white hover:text-black transition-all duration-300"
+            >
+              start a conversation
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
