@@ -104,255 +104,175 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-28 md:pt-36 pb-24 min-h-screen">
+    <div className="pt-28 md:pt-36 pb-24 min-h-screen bg-foreground text-background">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-sage-800 mb-5">
-              Contact
-            </p>
-            <h1 className="font-heading text-5xl md:text-7xl leading-tight tracking-wide text-foreground">
-              {service ? service.title : "Start a conversation"}
-            </h1>
-          </motion.div>
+        {/* How We Can Work Together Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <p className="font-body text-xs tracking-[0.3em] uppercase text-background/70 mb-5 text-center">
+            How We Can Work Together
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl leading-tight text-background mb-12 text-center max-w-3xl mx-auto">
+            Through initiatives that develop people, strengthen organisations and create opportunity.
+          </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          {/* Image Banner */}
+          <div className="grid grid-cols-3 gap-0 items-center">
+            {/* Image 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.7 }}
+              className="relative"
+            >
+              <img
+                src="/photos/dblake_speak-c5mDq9TB33h71iAz.jpg"
+                alt="Speaking"
+                className="w-full h-96 md:h-[28rem] object-cover object-top"
+              />
+              <div className="mt-6 text-center">
+                <p className="font-heading text-2xl md:text-3xl text-background font-semibold mb-2">
+                  SPEAKING
+                </p>
+                <p className="font-body text-base text-background/80 font-light">
+                  Keynotes and Seminars.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Image 2 - Circular */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+              className="relative -mx-12 md:-mx-20 z-10"
+            >
+              <div className="aspect-square rounded-full overflow-hidden shadow-2xl">
+                <img
+                  src="/photos/blakeweb-tU4ZL193EBSH5bG9.webp"
+                  alt="Small Group Sessions"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-8 text-center">
+                <p className="font-heading text-xl md:text-2xl text-background font-semibold mb-2">
+                  1:1 OR SMALL GROUP SESSIONS
+                </p>
+                <p className="font-body text-base text-background/80 font-light">
+                  Building confidence, leadership and employability skills.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Image 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="relative"
+            >
+              <img
+                src="/photos/blakepd-dJ03LT3VQ8W6WFLN.webp"
+                alt="Community & Social Impact"
+                className="w-full h-96 md:h-[28rem] object-cover object-top"
+              />
+              <div className="mt-6 text-center">
+                <p className="font-heading text-2xl md:text-3xl text-background font-semibold mb-2">
+                  COMMUNITY & SOCIAL IMPACT
+                </p>
+                <p className="font-body text-base text-background/80 font-light">
+                  Creative programmes for schools, charities and youth services.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Simple Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <p className="font-body text-xs tracking-[0.3em] uppercase text-background/70 mb-5">
+            Contact
+          </p>
+          <h1 className="font-heading text-5xl md:text-7xl leading-tight tracking-wide text-background mb-6">
+            {service ? service.title : "Start a conversation"}
+          </h1>
+          <p className="font-body text-lg leading-relaxed text-background/80 font-light max-w-2xl mx-auto">
+            {service
+              ? service.description
+              : "For creative projects, training, mentoring, consultancy, speaking, and partnerships, share what you are building or navigating. The first step is clarity."}
+          </p>
+        </motion.div>
+
+        {/* Form with Image */}
+        <div className="grid gap-12 lg:grid-cols-2 items-start">
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.12, duration: 0.7 }}
             className="space-y-6"
           >
-            <p className="font-body text-lg leading-relaxed text-muted-foreground font-light">
-              {service
-                ? service.description
-                : "For creative projects, training, mentoring, consultancy, speaking, and partnerships, share what you are building or navigating. The first step is clarity."}
-            </p>
-            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-foreground/60">
-              <span>Expertise</span>
-              <span>/</span>
-              <span>Leadership</span>
-              <span>/</span>
-              <span>Insight</span>
-              <span>/</span>
-              <span>Transformation</span>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-foreground/10 mb-16">
-          {contactCards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.18 + index * 0.08, duration: 0.6 }}
-              className="bg-background p-7 md:p-8"
-            >
-              <p className="font-body text-xs tracking-[0.28em] uppercase text-muted-foreground mb-8">
-                0{index + 1}
-              </p>
-              <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-                {card.title}
-              </h2>
-              <p className="font-body text-sm leading-relaxed text-muted-foreground font-light">
-                {card.text}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <motion.aside
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.7 }}
-            className="space-y-8"
-          >
-            <div className="border border-foreground/10 p-7 md:p-8">
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5">
-                Direct contact
-              </p>
-              <a
-                href="mailto:hello@davidpblake.org"
-                className="font-body text-lg tracking-widest lowercase text-foreground hover:text-sage transition-colors block break-all"
-              >
-                hello@davidpblake.org
-              </a>
-              <div className="flex flex-wrap gap-6 mt-8">
-                <a
-                  href="https://www.instagram.com/davidpblake"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-sage transition-colors"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/davidpblake"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-sage transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-foreground text-background p-7 md:p-8">
-              <p className="font-heading text-3xl leading-tight mb-5">
-                Not sure what to book?
-              </p>
-              <p className="font-body text-sm leading-relaxed text-background/70 font-light mb-8">
-                Start with the context. David can help shape the right format,
-                whether it becomes a workshop, consultation, commission, or ongoing support.
-              </p>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 font-body text-sm tracking-widest lowercase border-b border-current pb-1"
-              >
-                view service areas
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.aside>
-
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
-            className="border border-foreground/10 p-6 md:p-10 space-y-8 bg-background"
-          >
             <div>
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                Enquiry form
-              </p>
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground">
-                Tell us what you are imagining.
-              </h2>
-              {service?.duration && (
-                <div className="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4" />
-                  <span>{service.duration}</span>
-                </div>
-              )}
+              <label className="block font-body text-sm text-background mb-2">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-background/10 border border-background/20 text-background placeholder-background/50 focus:outline-none focus:border-cyan-400 transition-colors"
+                placeholder="Your name"
+              />
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block font-body text-sm text-foreground mb-2">Name</label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full pl-10 pr-4 py-3 bg-background border border-border text-foreground placeholder-foreground/40 focus:outline-none focus:border-sage-400 transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-body text-sm text-foreground mb-2">Email</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full pl-10 pr-4 py-3 bg-background border border-border text-foreground placeholder-foreground/40 focus:outline-none focus:border-sage-400 transition-colors"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block font-body text-sm text-foreground mb-2">Phone (Optional)</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder-foreground/40 focus:outline-none focus:border-sage-400 transition-colors"
-                  placeholder="+1 (555) 123-4567"
-                />
-              </div>
-
-              <div>
-                <label className="block font-body text-sm text-foreground mb-2">Area of interest</label>
-                <select
-                  name="interest"
-                  value={formData.interest || service?.title || ""}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-background border border-border text-foreground focus:outline-none focus:border-sage-400 transition-colors"
-                >
-                  <option value={service?.title || ""}>
-                    {service?.title || "Select an area"}
-                  </option>
-                  {enquiryTypes.map((type) => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {service && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-body text-sm text-foreground mb-2">Preferred Date</label>
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
-                    <input
-                      type="date"
-                      name="date"
-                      value={formData.date}
-                      onChange={handleChange}
-                      min={new Date().toISOString().split("T")[0]}
-                      className="w-full pl-10 pr-4 py-3 bg-background border border-border text-foreground focus:outline-none focus:border-sage-400 transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-body text-sm text-foreground mb-2">Preferred Time</label>
-                  <div className="relative">
-                    <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
-                    <select
-                      name="time"
-                      value={formData.time}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-background border border-border text-foreground focus:outline-none focus:border-sage-400 transition-colors"
-                    >
-                      <option value="">Select time</option>
-                      {generateTimeSlots().map((slot) => (
-                        <option key={slot} value={slot}>{slot}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-            )}
 
             <div>
-              <label className="block font-body text-sm text-foreground mb-2">Message</label>
+              <label className="block font-body text-sm text-background mb-2">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-background/10 border border-background/20 text-background placeholder-background/50 focus:outline-none focus:border-cyan-400 transition-colors"
+                placeholder="your.email@example.com"
+              />
+            </div>
+
+            <div>
+              <label className="block font-body text-sm text-background mb-2">Area of interest</label>
+              <select
+                name="interest"
+                value={formData.interest || service?.title || ""}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-background/10 border border-background/20 text-background focus:outline-none focus:border-cyan-400 transition-colors"
+              >
+                <option value={service?.title || ""}>
+                  {service?.title || "Select an area"}
+                </option>
+                {enquiryTypes.map((type) => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block font-body text-sm text-background mb-2">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
                 required
-                className="w-full px-4 py-3 bg-background border border-border text-foreground placeholder-foreground/40 focus:outline-none focus:border-sage-400 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-background/10 border border-background/20 text-background placeholder-background/50 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                 placeholder="Tell us about the project, people, challenge, timeline, or transformation you are exploring..."
               />
             </div>
@@ -360,15 +280,44 @@ export default function Contact() {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full font-body text-sm tracking-widest lowercase bg-black text-white px-8 py-4 hover:bg-sage transition-colors duration-200"
+                className="w-full font-body text-sm tracking-widest lowercase bg-background text-foreground px-8 py-4 hover:bg-cyan-400 hover:text-black transition-colors duration-300 font-semibold"
               >
-                {service ? "request a conversation" : "send enquiry"}
+                send message
               </button>
-              <p className="font-body text-xs text-muted-foreground text-center mt-4">
+              <p className="font-body text-xs text-background/70 text-center mt-4">
                 We will review your message and respond within 24-48 hours.
               </p>
             </div>
           </motion.form>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.25, duration: 0.7 }}
+            className="flex flex-col items-center justify-center space-y-8"
+          >
+            <img
+              src="/photos/blaked-e4Sm4mPhQCDJGUWM.png"
+              alt="David Blake"
+              className="w-full max-w-md rounded-lg shadow-2xl"
+            />
+            <div className="text-center space-y-4">
+              <a
+                href="mailto:hello@blakearts.com"
+                className="font-body text-lg tracking-widest lowercase text-background hover:text-cyan-400 transition-colors block"
+              >
+                hello@blakearts.com
+              </a>
+              <a
+                href="https://www.instagram.com/blakeartsuk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm tracking-widest uppercase text-background/80 hover:text-cyan-400 transition-colors"
+              >
+                Instagram
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

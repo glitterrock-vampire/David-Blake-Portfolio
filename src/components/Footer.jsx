@@ -46,10 +46,11 @@ export default function Footer() {
   const isWorkPage = location.pathname === '/work';
   const isCreativeLabPage = location.pathname === '/creative-lab';
   const isGalleryPage = location.pathname === '/gallery';
+  const isContactPage = location.pathname === '/contact';
 
   return (
     <footer className={`border-t py-12 px-6 md:px-12 ${
-      isWorkPage || isCreativeLabPage || isGalleryPage ? 'border-white/20 bg-black' : 'border-border'
+      isWorkPage || isCreativeLabPage || isGalleryPage || isContactPage ? 'border-white/20 bg-black' : 'border-border'
     }`}>
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Logos Section */}
@@ -59,7 +60,11 @@ export default function Footer() {
               <img
                 src={partner.logo}
                 alt={`${partner.name} logo`}
-                className="max-h-8 max-w-[120px] w-auto object-contain grayscale opacity-50 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                className={`max-h-8 max-w-[120px] w-auto object-contain transition duration-300 ${
+                  isWorkPage || isCreativeLabPage || isGalleryPage || isContactPage
+                    ? 'grayscale opacity-60 hover:grayscale-0 hover:opacity-100 invert'
+                    : 'grayscale opacity-50 hover:grayscale-0 hover:opacity-100'
+                }`}
               />
             </div>
           ))}
@@ -69,7 +74,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 text-center md:text-left">
           <div className="space-y-2">
             <Link to="/" className={`font-heading text-lg tracking-wide block ${
-              isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
+              isWorkPage || isCreativeLabPage || isContactPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
             }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
               {"David Blake".split("").map((letter, i) => (
                 <motion.span
@@ -95,14 +100,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className={`font-body text-xs tracking-widest uppercase transition-colors ${
-                isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-rust/70 hover:text-rust' : 'text-muted-foreground hover:text-foreground'
+                isWorkPage || isCreativeLabPage || isContactPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-rust/70 hover:text-rust' : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               Instagram
             </a>
           </div>
           <p className={`font-body text-xs md:text-right ${
-            isWorkPage || isCreativeLabPage ? 'text-white/70' : isGalleryPage ? 'text-rust/70' : 'text-muted-foreground'
+            isWorkPage || isCreativeLabPage || isContactPage ? 'text-white/70' : isGalleryPage ? 'text-rust/70' : 'text-muted-foreground'
           }`}>
             <motion.span
               initial={{ opacity: 0, scale: 0 }}
