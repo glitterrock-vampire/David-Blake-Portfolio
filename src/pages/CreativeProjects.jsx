@@ -64,7 +64,7 @@ export default function CreativeProjects() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-heading text-5xl md:text-7xl tracking-wide lowercase text-white mb-6"
+          className="font-heading text-6xl md:text-8xl lg:text-9xl tracking-wide lowercase text-white mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           Selected Work
@@ -73,7 +73,7 @@ export default function CreativeProjects() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="font-body text-sm text-white/70 font-light max-w-xl mx-auto"
+          className="font-body text-base md:text-lg text-white/80 font-normal leading-relaxed max-w-2xl mx-auto"
         >
           Creative leadership, movement direction, collaboration, storytelling, and cultural impact across stage, screen, and digital research.
         </motion.p>

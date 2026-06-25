@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "home", path: "/" },
   { label: "about", path: "/about" },
-  { label: "work with david", path: "/work-with-david" },
+  { label: "work with david", path: "/work-with-david", featured: true },
   { label: "beyond performance", path: "/beyond-performance" },
   { label: "creative projects", path: "/creative-projects" },
   { label: "impact & recognition", path: "/impact" },
@@ -37,7 +37,9 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 ${
+                className={`font-body tracking-widest lowercase transition-colors duration-300 ${
+                  link.featured ? "text-base font-semibold" : "text-sm"
+                } ${
                   location.pathname === link.path
                     ? "text-foreground"
                     : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
@@ -104,7 +106,9 @@ export default function Navbar() {
                   <Link
                     to={link.path}
                     onClick={() => setMobileOpen(false)}
-                    className="font-heading text-3xl tracking-wide lowercase text-foreground"
+                    className={`font-heading tracking-wide lowercase text-foreground ${
+                      link.featured ? "text-4xl" : "text-3xl"
+                    }`}
                   >
                     {link.label}
                   </Link>
