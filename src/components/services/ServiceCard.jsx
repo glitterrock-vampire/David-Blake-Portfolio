@@ -27,21 +27,21 @@ export default function ServiceCard({ service, index }) {
       </div>
 
       {/* Hover booking info */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <p className="font-body text-base text-white/90 font-bold leading-relaxed text-center mb-6">
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="font-body text-sm text-white/90 font-light leading-snug text-center mb-4 line-clamp-3">
           {service.description}
         </p>
-        
+
         {/* Duration only */}
-        <div className="flex items-center justify-center gap-2 text-sm text-white/80 mb-6">
-          <Clock className="w-4 h-4" />
+        <div className="flex items-center justify-center gap-2 text-xs text-white/80 mb-4">
+          <Clock className="w-3 h-3" />
           <span>{service.duration}</span>
         </div>
 
         {/* Action Button */}
-        <div className="inline-flex items-center gap-2 px-6 py-3 bg-sage-900 text-white rounded-md hover:bg-sage-800 transition-colors duration-200">
+        <div className="inline-flex items-center gap-2 px-5 py-2 bg-sage-900 text-white rounded-md hover:bg-sage-800 transition-colors duration-200 text-sm">
           {service.action}
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-3 h-3" />
         </div>
       </div>
     </motion.div>
