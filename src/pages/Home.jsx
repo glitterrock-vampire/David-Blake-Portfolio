@@ -51,22 +51,22 @@ const serviceAreas = [
   {
     title: "Creative Direction & Choreography",
     description: "Movement, staging, and creative leadership for productions, campaigns, events, and screen work.",
-    link: "/work",
+    link: "/creative-projects",
   },
   {
     title: "Education & Training",
     description: "Workshops, masterclasses, and learning experiences that build confidence, craft, and professional readiness.",
-    link: "/work",
+    link: "/beyond-performance",
   },
   {
     title: "Mentoring & Artist Development",
     description: "Focused support for artists navigating growth, transition, identity, and sustainable creative careers.",
-    link: "/work",
+    link: "/contact?service=mentoring",
   },
   {
     title: "Consultancy & Advisory",
     description: "Strategic insight for creative and educational organisations shaping programmes, teams, and cultural impact.",
-    link: "/work",
+    link: "/contact?service=consultation",
   },
 ];
 
@@ -106,8 +106,8 @@ export default function Home() {
       <div className="relative z-10">
         <HeroSection />
 
-        <section className="py-16 md:py-24 border-y border-foreground/10 bg-gradient-to-b from-background to-background/95 overflow-hidden">
-          <div className="mb-12 px-6 md:px-12">
+        <section className="py-8 md:py-10 border-y border-foreground/10 bg-gradient-to-b from-background to-background/95 overflow-hidden">
+          <div className="mb-7 px-6 md:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,26 +118,26 @@ export default function Home() {
               <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
                 Trusted by
               </p>
-              <h2 className="font-heading text-3xl md:text-5xl leading-tight text-foreground max-w-4xl mx-auto">
-                Leading organisations across stage, screen, education, and cultural leadership
+              <h2 className="font-heading text-2xl md:text-3xl leading-tight text-foreground max-w-3xl mx-auto">
+                Credits and collaborations across stage, screen, education, and cultural leadership.
               </h2>
             </motion.div>
           </div>
 
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" />
-            <div className="flex w-max animate-logo-marquee py-8">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent" />
+            <div className="flex w-max animate-logo-marquee">
               {trustedByTrack.map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="mx-10 md:mx-16 flex h-24 min-w-[180px] items-center justify-center"
+                  className="mx-8 md:mx-12 flex h-20 min-w-[160px] items-center justify-center"
                   aria-hidden={index >= trustedBy.length}
                 >
                   <img
                     src={partner.logo}
                     alt={index < trustedBy.length ? `${partner.name} logo` : ""}
-                    className="max-h-12 max-w-[180px] w-auto object-contain grayscale opacity-60 transition-all duration-500 hover:grayscale-0 hover:opacity-100 hover:scale-105"
+                    className="max-h-10 max-w-[160px] w-auto object-contain grayscale opacity-60 transition-all duration-500 hover:grayscale-0 hover:opacity-100 hover:scale-105"
                   />
                 </div>
               ))}
@@ -162,10 +162,10 @@ export default function Home() {
 
           <div className="text-center mt-16">
             <Link
-              to="/work"
+              to="/creative-projects"
               className="font-body text-sm tracking-widest lowercase border border-foreground px-8 py-3 text-foreground hover:bg-foreground hover:text-background transition-all duration-300 inline-block"
             >
-              view full work
+              view creative projects
             </Link>
           </div>
         </section>
@@ -188,9 +188,7 @@ export default function Home() {
                   Clear pathways for creative, personal, and organisational growth.
                 </h2>
                 <p className="font-body text-lg md:text-xl leading-relaxed text-muted-foreground font-light max-w-3xl mx-auto">
-                  Blake Arts brings together performance expertise, educational leadership,
-                  mentoring, and strategic thinking. Choose the area that fits your next
-                  move, or start with a conversation and shape the right approach together.
+                  Explore coaching, speaking, workshops and advisory work designed to help people grow, transition and lead.
                 </p>
               </motion.div>
             </div>

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { Calendar, Clock, User, Mail, ArrowRight } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
 const services = {
   choreography: {
@@ -203,12 +202,10 @@ export default function Contact() {
             Contact
           </p>
           <h1 className="font-heading text-5xl md:text-7xl leading-tight tracking-wide text-background mb-6">
-            {service ? service.title : "Start a conversation"}
+            Let's start a conversation
           </h1>
           <p className="font-body text-lg leading-relaxed text-background/80 font-light max-w-2xl mx-auto">
-            {service
-              ? service.description
-              : "For creative projects, training, mentoring, consultancy, speaking, and partnerships, share what you are building or navigating. The first step is clarity."}
+            Whether you're looking for speaking, workshops, partnerships, mentoring, or consultancy, I'd love to hear from you. Reach out and let's explore what's possible.
           </p>
         </motion.div>
 
@@ -316,6 +313,24 @@ export default function Contact() {
               >
                 Instagram
               </a>
+              <div className="pt-4 border-t border-background/20 mt-4">
+                <a
+                  href="https://substack.com/@davidblakema"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm tracking-widest uppercase text-background/80 hover:text-cyan-400 transition-colors block mb-3"
+                >
+                  Subscribe on Substack
+                </a>
+                <a
+                  href="https://paypal.me/davidblake"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm tracking-widest uppercase text-background/80 hover:text-cyan-400 transition-colors block"
+                >
+                  Support via PayPal
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

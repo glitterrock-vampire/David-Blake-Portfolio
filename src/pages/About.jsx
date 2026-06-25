@@ -2,6 +2,25 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function About() {
+  const careerHighlights = [
+    {
+      title: "17 Years in Disney's The Lion King",
+      description: "Principal performer and creative contributor to one of the world's most successful theatrical productions."
+    },
+    {
+      title: "Former Director of Dance & Musical Theatre at Urdang",
+      description: "Led programmes and developed emerging talent at City St George's, University of London."
+    },
+    {
+      title: "Advisory Roles",
+      description: "Strategic partnerships with BBC, Ernst & Young, and Camden Council on creative and educational initiatives."
+    },
+    {
+      title: "Award-Winning Educator",
+      description: "Recognised for excellence in teaching, artist development, and educational leadership."
+    }
+  ];
+
   return (
     <div className="pt-28 md:pt-36 pb-24">
       {/* Header */}
@@ -38,83 +57,76 @@ export default function About() {
         />
       </motion.div>
 
-      {/* Bio */}
+      {/* Who I Am */}
       <div className="max-w-3xl mx-auto px-6 mb-20">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-body text-base leading-relaxed text-muted-foreground font-light"
+          transition={{ duration: 0.8 }}
         >
-          David Blake is a creative director, educator, mentor, choreographer, and performer with over two decades of international experience across performance, leadership, higher education, and artist development.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
-        >
-          Widely recognised for his 17-year career with Disney's The Lion King and as a former Principal Dancer with the National Dance Theatre Company of Jamaica (NDTC), David's work spans stage, screen, education, and community engagement. His recent creative credits include Wicked: For Good, BBC productions, EE, and Ernst & Young.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
-        >
-          As the former Director of Dance & Musical Theatre at Urdang, City St George's University of London, David has led programmes, developed emerging talent, and supported artists and organisations in navigating growth, change, and opportunity.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="font-body text-base leading-relaxed text-muted-foreground font-light mt-6"
-        >
-          Through Blake Arts, he creates training programmes, mentorship opportunities, leadership initiatives, and creative projects that support artists, educators, organisations, and communities.
-        </motion.p>
+          <h2 className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-8 lowercase">
+            Who I Am
+          </h2>
+          <p className="font-body text-base leading-relaxed text-muted-foreground font-light">
+            David Blake is a creative director, educator, mentor, choreographer, and performer with over two decades of international experience across performance, leadership, higher education, and artist development.
+          </p>
+        </motion.div>
       </div>
 
-      {/* Professional Practice */}
-      <div className="max-w-3xl mx-auto px-6 mb-20">
-        <motion.h2
+      {/* Career Highlights */}
+      <div className="max-w-6xl mx-auto px-6 mb-20">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-8 lowercase"
+          transition={{ duration: 0.8 }}
+          className="mb-12"
         >
-          Professional Practice
-        </motion.h2>
-        <motion.ul
+          <h2 className="font-heading text-2xl md:text-3xl tracking-wide text-foreground mb-4 lowercase">
+            Career Highlights
+          </h2>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {careerHighlights.map((highlight, index) => (
+            <motion.div
+              key={highlight.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-gradient-to-br from-background to-background/50 border border-foreground/10 p-8"
+            >
+              <h3 className="font-heading text-lg md:text-xl text-foreground mb-4">
+                {highlight.title}
+              </h3>
+              <p className="font-body text-base text-muted-foreground font-light leading-relaxed">
+                {highlight.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div className="max-w-4xl mx-auto px-6 mb-20">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="space-y-4"
+          transition={{ duration: 0.8 }}
+          className="bg-foreground text-background p-10 md:p-16"
         >
-          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
-            <span className="text-foreground">•</span>
-            <span>Creative Direction & Choreography</span>
-          </li>
-          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
-            <span className="text-foreground">•</span>
-            <span>Education & Leadership</span>
-          </li>
-          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
-            <span className="text-foreground">•</span>
-            <span>Mentoring & Artist Development</span>
-          </li>
-          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
-            <span className="text-foreground">•</span>
-            <span>Performance</span>
-          </li>
-          <li className="font-body text-base leading-relaxed text-muted-foreground font-light flex items-start gap-3">
-            <span className="text-foreground">•</span>
-            <span>Speaking & Consultancy</span>
-          </li>
-        </motion.ul>
+          <h2 className="font-heading text-2xl md:text-3xl tracking-wide text-background mb-8 lowercase">
+            Philosophy
+          </h2>
+          <p className="font-body text-lg md:text-xl text-white/80 font-light leading-relaxed">
+            David's work explores how the discipline, resilience and mindset developed in high-performance environments across the arts, sport, education and leadership can translate into sustainable success and lasting impact.
+          </p>
+          <p className="font-body text-base text-white/70 font-light leading-relaxed mt-6">
+            This philosophy connects performers, athletes, and leaders through shared principles of excellence, adaptation, and purpose-driven growth.
+          </p>
+        </motion.div>
       </div>
 
       {/* Let's Connect */}
@@ -140,7 +152,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="font-body text-base leading-relaxed text-muted-foreground font-light mb-8"
-          >
+            >
             David is available for speaking engagements, workshops, artist development programmes, consultancy, creative projects, and educational partnerships.
           </motion.p>
           <motion.div
