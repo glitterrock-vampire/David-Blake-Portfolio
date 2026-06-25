@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ServiceCard from "../components/services/ServiceCard";
 
 const programmes = [
   {
@@ -13,7 +14,9 @@ const programmes = [
       "Leaders & Organisations"
     ],
     cta: "Learn More",
-    link: "/contact?service=mentoring"
+    link: "/contact?service=mentoring",
+    image: "/photos/Photo 14-10-2020, 16 18 00.jpg",
+    duration: "Custom"
   },
   {
     title: "Leadership Lab",
@@ -25,7 +28,9 @@ const programmes = [
       "Emerging Managers"
     ],
     cta: "Explore",
-    link: "/contact?service=consultation"
+    link: "/contact?service=consultation",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (19).jpg",
+    duration: "Custom"
   },
   {
     title: "Mentorship & Coaching",
@@ -37,7 +42,23 @@ const programmes = [
       "Professionals in Transition"
     ],
     cta: "Start Mentoring",
-    link: "/contact?service=mentoring"
+    link: "/contact?service=mentoring",
+    image: "/photos/Photo 28-09-2018, 16 58 35.jpg",
+    duration: "1 hour"
+  },
+  {
+    title: "Creative Lab Workshop",
+    focus: "Interactive workshops and professional development.",
+    description: "Interactive workshops and professional development sessions supporting emerging and mid-career artists with industry transition, mindset, and sustainable career strategy.",
+    audiences: [
+      "Emerging Artists",
+      "Mid-Career Professionals",
+      "Creative Practitioners"
+    ],
+    cta: "Explore",
+    link: "/creative-lab",
+    image: "/photos/the-creative-lab.jpeg",
+    duration: "2 hours"
   }
 ];
 
@@ -54,7 +75,7 @@ export default function BeyondPerformance() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="font-body text-sm tracking-[0.3em] text-muted-foreground mb-6"
+            className="font-body text-sm tracking-[0.3em] text-sage-600 mb-6"
           >
             Programmes
           </motion.p>
@@ -80,54 +101,13 @@ export default function BeyondPerformance() {
 
       {/* Programmes Section */}
       <div className="max-w-6xl mx-auto px-6">
-        {programmes.map((programme, index) => (
-          <motion.div
-            key={programme.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: index * 0.15 }}
-            className="mb-16 last:mb-0"
-          >
-            <div className="bg-gradient-to-br from-background to-background/50 border border-foreground/10 p-10 md:p-12">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
-                <div className="flex-1">
-                  <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">
-                    {programme.title}
-                  </h2>
-                  <p className="font-body text-sm tracking-widest uppercase text-muted-foreground mb-4">
-                    {programme.focus}
-                  </p>
-                </div>
-              </div>
-              
-              <p className="font-body text-lg text-muted-foreground font-light leading-relaxed mb-8 max-w-3xl">
-                {programme.description}
-              </p>
-
-              <div className="mb-8">
-                <h3 className="font-heading text-lg text-foreground mb-4">For</h3>
-                <div className="flex flex-wrap gap-3">
-                  {programme.audiences.map((audience) => (
-                    <span
-                      key={audience}
-                      className="font-body text-sm text-muted-foreground bg-foreground/5 px-4 py-2"
-                    >
-                      {audience}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                to={programme.link}
-                className="inline-block font-body text-sm tracking-widest lowercase border border-foreground px-8 py-3 text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-              >
-                {programme.cta}
-              </Link>
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+          {programmes.map((programme, index) => (
+            <Link key={programme.title} to={programme.link}>
+              <ServiceCard service={programme} index={index} />
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Elite Athletes Highlight */}
@@ -137,12 +117,12 @@ export default function BeyondPerformance() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-foreground text-background p-10 md:p-16"
+          className="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-10 md:p-16"
         >
-          <h2 className="font-heading text-3xl md:text-4xl text-background mb-6">
+          <h2 className="font-heading text-3xl md:text-4xl text-white mb-6">
             Elite Athletes & High Performers
           </h2>
-          <p className="font-body text-lg md:text-xl text-white/80 font-light leading-relaxed mb-8 max-w-3xl">
+          <p className="font-body text-lg md:text-xl text-white/90 font-light leading-relaxed mb-8 max-w-3xl">
             Supporting high performers in transition, identity, leadership and life beyond performance. Drawing on deep experience in high-performance environments, this work helps athletes translate the discipline, resilience, and mindset developed in sport into sustainable success and lasting impact.
           </p>
           <Link
@@ -176,9 +156,9 @@ export default function BeyondPerformance() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-background border border-foreground/10 p-6 text-center"
+                className="bg-gradient-to-br from-sage-50 to-sage-100 border border-sage-200 p-6 text-center hover:border-sage-400 transition-colors"
               >
-                <span className="font-body text-sm text-muted-foreground">{item}</span>
+                <span className="font-body text-sm text-sage-800">{item}</span>
               </motion.div>
             ))}
           </div>

@@ -6,25 +6,29 @@ const services = [
     title: "Coaching & Mentoring",
     description: "Personalised guidance for artists, leaders, and professionals navigating growth, transition, and sustainable success.",
     cta: "Learn More",
-    link: "/contact?service=mentoring"
+    link: "/contact?service=mentoring",
+    image: "/photos/Photo 14-10-2020, 16 18 00.jpg"
   },
   {
     title: "Speaking",
     description: "Keynote presentations and talks on leadership, creativity, purpose, career transition, and high-performance mindset.",
     cta: "Book David",
-    link: "/contact?service=academic"
+    link: "/contact?service=academic",
+    image: "/photos/dblake_speak-c5mDq9TB33h71iAz.jpg"
   },
   {
     title: "Workshops & Development",
     description: "Leadership, employability and personal development programmes for artists, elite athletes, young people and organisations.",
     cta: "Explore Programmes",
-    link: "/beyond-performance"
+    link: "/beyond-performance",
+    image: "/photos/blakeweb-tU4ZL193EBSH5bG9.webp"
   },
   {
     title: "Creative Direction & Advisory",
     description: "Strategic insight and creative leadership for productions, campaigns, organisations, and cultural projects.",
     cta: "Get in Touch",
-    link: "/contact?service=consultation"
+    link: "/contact?service=consultation",
+    image: "/photos/Photo 08-12-2025, 12 02 27 (19).jpg"
   }
 ];
 
@@ -49,7 +53,7 @@ const audiences = [
 
 export default function WorkWithDavid() {
   return (
-    <div className="pt-28 md:pt-36 pb-24">
+    <div className="pt-28 md:pt-36 pb-24 bg-slate-900 text-white">
       {/* Header */}
       <div className="max-w-4xl mx-auto px-6 mb-20">
         <motion.div
@@ -60,7 +64,7 @@ export default function WorkWithDavid() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="font-body text-sm tracking-[0.3em] text-muted-foreground mb-6"
+            className="font-body text-sm tracking-[0.3em] text-sage-400 mb-6"
           >
             Work With David
           </motion.p>
@@ -68,7 +72,7 @@ export default function WorkWithDavid() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-heading text-5xl md:text-7xl tracking-wide text-foreground mb-8"
+            className="font-heading text-5xl md:text-7xl tracking-wide text-white mb-8"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Clear pathways for creative, personal, and organisational growth.
@@ -77,7 +81,7 @@ export default function WorkWithDavid() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="font-body text-lg md:text-xl leading-relaxed text-muted-foreground font-light"
+            className="font-body text-lg md:text-xl leading-relaxed text-white/80 font-light"
           >
             Whether you're an artist navigating transition, an organisation building leadership capability, or a high performer redefining purpose, there's a pathway forward.
           </motion.p>
@@ -93,7 +97,7 @@ export default function WorkWithDavid() {
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
-          <h2 className="font-heading text-3xl md:text-4xl tracking-wide text-foreground mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl tracking-wide text-white mb-4">
             Who I Work With
           </h2>
         </motion.div>
@@ -105,12 +109,12 @@ export default function WorkWithDavid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-background border border-foreground/10 p-8 hover:border-foreground/30 transition-all duration-300"
+              className="bg-slate-800/50 border border-slate-700 p-8 hover:border-sage-500 transition-all duration-300"
             >
-              <h3 className="font-heading text-xl md:text-2xl text-foreground mb-4">
+              <h3 className="font-heading text-xl md:text-2xl text-white mb-4">
                 {audience.title}
               </h3>
-              <p className="font-body text-base text-muted-foreground font-light leading-relaxed">
+              <p className="font-body text-base text-white/70 font-light leading-relaxed">
                 {audience.description}
               </p>
             </motion.div>
@@ -127,7 +131,7 @@ export default function WorkWithDavid() {
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
-          <h2 className="font-heading text-3xl md:text-4xl tracking-wide text-foreground mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl tracking-wide text-white mb-4">
             Services
           </h2>
         </motion.div>
@@ -139,23 +143,32 @@ export default function WorkWithDavid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-background to-background/50 border border-foreground/10 p-10 hover:border-foreground/30 transition-all duration-300"
+              className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 overflow-hidden hover:border-sage-500 transition-all duration-300 group"
             >
-              <h3 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-                {service.title}
-              </h3>
-              <p className="font-body text-base text-muted-foreground font-light leading-relaxed mb-8">
-                {service.description}
-              </p>
-              <Link
-                to={service.link}
-                className="font-body text-sm tracking-widest lowercase inline-flex items-center gap-2 text-foreground hover:gap-3 transition-all duration-300"
-              >
-                {service.cta}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="font-heading text-2xl md:text-3xl text-white mb-4">
+                  {service.title}
+                </h3>
+                <p className="font-body text-base text-white/70 font-light leading-relaxed mb-8">
+                  {service.description}
+                </p>
+                <Link
+                  to={service.link}
+                  className="font-body text-sm tracking-widest lowercase inline-flex items-center gap-2 text-white hover:text-sage-400 hover:gap-3 transition-all duration-300"
+                >
+                  {service.cta}
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -168,17 +181,17 @@ export default function WorkWithDavid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center py-16 border-t border-foreground/10"
+          className="text-center py-16 border-t border-slate-700"
         >
-          <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-6">
+          <h2 className="font-heading text-3xl md:text-4xl text-white mb-6">
             Ready to start?
           </h2>
-          <p className="font-body text-lg text-muted-foreground font-light mb-8">
+          <p className="font-body text-lg text-white/70 font-light mb-8">
             Let's have a conversation about what you're working toward.
           </p>
           <Link
             to="/contact"
-            className="inline-block font-body text-sm tracking-widest lowercase bg-foreground text-background px-10 py-4 hover:bg-sage hover:text-background transition-all duration-300"
+            className="inline-block font-body text-sm tracking-widest lowercase bg-white text-black px-10 py-4 hover:bg-sage hover:text-background transition-all duration-300"
           >
             start a conversation
           </Link>
