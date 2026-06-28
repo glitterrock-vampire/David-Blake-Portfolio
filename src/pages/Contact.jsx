@@ -13,6 +13,7 @@ const emptyForm = {
   message: ""
 };
 
+/** @type {Record<string, { title: string, description: string, duration: string }>} */
 const services = {
   choreography: {
     title: "Creative Direction & Choreography",
@@ -85,16 +86,19 @@ export default function Contact() {
     }
   }, [searchParams, selectedService]);
 
+  /** @param {import("react").ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>} e */
   const handleChange = (e) => {
+    const field = /** @type {keyof typeof emptyForm} */ (e.target.name);
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [field]: e.target.value
     });
   };
 
+  /** @param {import("react").FormEvent<HTMLFormElement>} e */
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Contact submitted:", { service: selectedService, ...formData });
     setFormData(emptyForm);
     toast({
       title: "Message sent",
@@ -129,7 +133,7 @@ export default function Contact() {
           </h2>
 
           {/* Image Banner */}
-          <div className="grid grid-cols-3 gap-0 items-center">
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-0 md:items-center">
             {/* Image 1 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -140,7 +144,7 @@ export default function Contact() {
               <img
                 src="/photos/dblake_speak-c5mDq9TB33h71iAz.jpg"
                 alt="Speaking"
-                className="w-full h-96 md:h-[28rem] object-cover object-top"
+                className="w-full h-72 md:h-[28rem] object-cover object-top"
               />
               <div className="mt-6 text-center">
                 <p className="font-heading text-2xl md:text-3xl text-background font-semibold mb-2">
@@ -157,9 +161,9 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
-              className="relative -mx-12 md:-mx-20 z-10"
+              className="relative mx-auto w-full max-w-sm md:-mx-20 md:w-auto md:max-w-none z-10"
             >
-              <div className="aspect-square rounded-full overflow-hidden shadow-2xl">
+              <div className="mx-auto aspect-[4/5] w-4/5 overflow-hidden rounded-[999px] shadow-2xl md:w-full">
                 <img
                   src="/photos/blakeweb-tU4ZL193EBSH5bG9.webp"
                   alt="Small Group Sessions"
@@ -186,7 +190,7 @@ export default function Contact() {
               <img
                 src="/photos/blakepd-dJ03LT3VQ8W6WFLN.webp"
                 alt="Community & Social Impact"
-                className="w-full h-96 md:h-[28rem] object-cover object-top"
+                className="w-full h-72 md:h-[28rem] object-cover object-top"
               />
               <div className="mt-6 text-center">
                 <p className="font-heading text-2xl md:text-3xl text-background font-semibold mb-2">
