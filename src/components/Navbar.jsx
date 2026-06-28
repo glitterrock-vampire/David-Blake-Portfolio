@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "home", path: "/" },
   { label: "about", path: "/about" },
-  { label: "work", path: "/work" },
-  { label: "services", path: "/services" },
-  { label: "gallery", path: "/gallery" },
+  { label: "work with david", path: "/work-with-david", featured: true },
+  { label: "beyond performance", path: "/beyond-performance" },
+  { label: "creative projects", path: "/creative-projects" },
+  { label: "impact & recognition", path: "/impact" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [workDropdownOpen, setWorkDropdownOpen] = useState(false);
   const location = useLocation();
   const isWorkPage = location.pathname === '/work';
   const isCreativeLabPage = location.pathname === '/creative-lab';
@@ -26,136 +25,28 @@ export default function Navbar() {
         isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/80' : 'bg-background/80'
       }`}>
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
-          <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide lowercase ${
+          <Link to="/" className={`font-heading text-xl md:text-2xl tracking-wide ${
             isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
           }`} style={{ fontFamily: "'Montserrat', sans-serif" }}>
             David Blake
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <div key={link.path} className="relative">
-                {link.label === "work" ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setWorkDropdownOpen(true)}
-                    onMouseLeave={() => setWorkDropdownOpen(false)}
-                  >
-                    <Link
-                      to="/work"
-                      className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
-                        location.pathname === "/work" || workDropdownOpen
-                          ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
-                      }`}
-                    >
-                      {link.label}
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${workDropdownOpen ? "rotate-180" : ""}`} />
-                    </Link>
-                    <AnimatePresence>
-                      {workDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
-                            isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/90' : 'bg-background'
-                          }`}
-                        >
-                          <Link
-                            to="/work/melanin-migration"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Melanin Migration
-                          </Link>
-                          <Link
-                            to="/work/drawing-with-light"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Drawing With Light
-                          </Link>
-                          <Link
-                            to="/work/embodied-code"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Embodied Code
-                          </Link>
-                          <a
-                            href="https://www.blakearts.org/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`block px-4 py-3 font-body text-sm transition-colors flex items-center justify-between ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            <span>blakearts.org</span>
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : link.label === "services" ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
-                  >
-                    <Link
-                      to="/services"
-                      className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 flex items-center gap-1 ${
-                        location.pathname === "/services" || servicesDropdownOpen
-                          ? "text-orange-500"
-                          : isWorkPage || isCreativeLabPage ? "text-white/70 hover:text-white" : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-orange-500"
-                      }`}
-                    >
-                      {link.label}
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${servicesDropdownOpen ? "rotate-180" : ""}`} />
-                    </Link>
-                    <AnimatePresence>
-                      {servicesDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className={`absolute top-full left-0 mt-2 border border-foreground/20 rounded-lg shadow-lg overflow-hidden min-w-[200px] ${
-                            isWorkPage || isCreativeLabPage || isGalleryPage ? 'bg-black/90' : 'bg-background'
-                          }`}
-                        >
-                          <Link
-                            to="/creative-lab"
-                            className={`block px-4 py-3 font-body text-sm transition-colors ${
-                              isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            The Creative Lab
-                          </Link>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    to={link.path}
-                    className={`font-body text-sm tracking-widest lowercase transition-colors duration-300 ${
-                      location.pathname === link.path
-                        ? "text-foreground"
-                        : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`font-body tracking-widest lowercase transition-colors duration-300 ${
+                  link.featured ? "text-base font-semibold" : "text-sm"
+                } ${
+                  location.pathname === link.path
+                    ? "text-foreground"
+                    : isGalleryPage ? "text-white hover:text-orange-500" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
             ))}
             <Link
               to="/contact"
@@ -193,7 +84,7 @@ export default function Navbar() {
               <Link
                 to="/"
                 onClick={() => setMobileOpen(false)}
-                className={`font-heading text-xl tracking-wide lowercase ${
+                className={`font-heading text-xl tracking-wide ${
                   isGalleryPage ? 'text-rust' : 'text-foreground'
                 }`}
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
@@ -212,87 +103,15 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 }}
                 >
-                  {link.label === "work" ? (
-                    <div className="flex flex-col items-center gap-4">
-                      <Link
-                        to={link.path}
-                        onClick={() => setMobileOpen(false)}
-                        className={`font-heading text-3xl tracking-wide lowercase ${
-                          isWorkPage || isCreativeLabPage ? 'text-white' : isGalleryPage ? 'text-rust' : 'text-foreground'
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                      <div className="flex flex-col items-center gap-2 ml-8">
-                        <Link
-                          to="/work/melanin-migration"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Melanin Migration
-                        </Link>
-                        <Link
-                          to="/work/drawing-with-light"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Drawing With Light
-                        </Link>
-                        <Link
-                          to="/work/embodied-code"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          Embodied Code
-                        </Link>
-                        <a
-                          href="https://www.blakearts.org/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setMobileOpen(false)}
-                          className={`font-body text-lg tracking-wide lowercase flex items-center gap-2 ${
-                            isWorkPage || isCreativeLabPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-white/70 hover:text-orange-500' : 'text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          blakearts.org
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      </div>
-                    </div>
-                  ) : link.label === "services" ? (
-                    <div className="flex flex-col items-center gap-4">
-                      <Link
-                        to="/services"
-                        onClick={() => setMobileOpen(false)}
-                        className="font-heading text-3xl tracking-wide lowercase text-foreground"
-                      >
-                        {link.label}
-                      </Link>
-                      <div className="flex flex-col items-center gap-2 ml-8">
-                        <Link
-                          to="/creative-lab"
-                          onClick={() => setMobileOpen(false)}
-                          className="font-body text-lg tracking-wide lowercase text-muted-foreground hover:text-foreground"
-                        >
-                          The Creative Lab
-                        </Link>
-                      </div>
-                    </div>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      onClick={() => setMobileOpen(false)}
-                      className="font-heading text-3xl tracking-wide lowercase text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
+                  <Link
+                    to={link.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={`font-heading tracking-wide lowercase text-foreground ${
+                      link.featured ? "text-4xl" : "text-3xl"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 </motion.div>
               ))}
               <motion.div

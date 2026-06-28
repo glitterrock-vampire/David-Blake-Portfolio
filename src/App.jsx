@@ -6,6 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Layout from './components/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Work from './pages/Work';
@@ -14,6 +15,10 @@ import Services from './pages/Services';
 import CreativeLab from './pages/CreativeLab';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import WorkWithDavid from './pages/WorkWithDavid';
+import BeyondPerformance from './pages/BeyondPerformance';
+import CreativeProjects from './pages/CreativeProjects';
+import Impact from './pages/Impact';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -50,6 +55,10 @@ const AuthenticatedApp = () => {
         <Route path="/creative-lab" element={<CreativeLab />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/work-with-david" element={<WorkWithDavid />} />
+        <Route path="/beyond-performance" element={<BeyondPerformance />} />
+        <Route path="/creative-projects" element={<CreativeProjects />} />
+        <Route path="/impact" element={<Impact />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
@@ -62,7 +71,8 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <ScrollToTop />
           <AuthenticatedApp />
         </Router>
         <Toaster />
