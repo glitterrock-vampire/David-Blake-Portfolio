@@ -300,10 +300,10 @@ export default function Contact() {
             />
             <div className="text-center space-y-4">
               <a
-                href="mailto:hello@blakearts.com"
+                href="mailto:info@blakearts.org"
                 className="font-body text-lg tracking-widest lowercase text-background hover:text-cyan-400 transition-colors block"
               >
-                hello@blakearts.com
+                info@blakearts.org
               </a>
               <a
                 href="https://www.instagram.com/blakeartsuk"
@@ -331,6 +331,18 @@ export default function Contact() {
                   Support via PayPal
                 </a>
               </div>
+            </div>
+            <div className="w-full max-w-md border border-background/20 bg-background/5 p-6 md:p-8">
+              <p className="font-body text-xs tracking-[0.25em] uppercase text-cyan-400 mb-3">
+                Stay connected
+              </p>
+              <h2 className="font-heading text-2xl text-background mb-3">
+                Notes on creativity, leadership and purpose.
+              </h2>
+              <p className="font-body text-sm leading-relaxed text-background/70 mb-6">
+                Join David's mailing list for new writing, projects and upcoming opportunities.
+              </p>
+              <div className="ml-embedded" data-form="Yb349c"></div>
             </div>
           </motion.div>
         </div>

@@ -308,8 +308,8 @@ export default function Home() {
                 </Link>
                 
                 <div className="flex flex-col sm:flex-row gap-8 text-white/80">
-                  <a href="mailto:hello@blakearts.com" className="font-body text-base hover:text-cyan-400 transition-colors font-medium">
-                    hello@blakearts.com
+                  <a href="mailto:info@blakearts.org" className="font-body text-base hover:text-cyan-400 transition-colors font-medium">
+                    info@blakearts.org
                   </a>
                   <span className="hidden sm:inline text-white/30">•</span>
                   <span className="font-body text-base font-medium">

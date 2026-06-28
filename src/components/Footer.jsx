@@ -94,7 +94,15 @@ export default function Footer() {
               Creative Direction · Choreography · Leadership · Mentorship and Coaching
             </p>
           </div>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a
+              href="mailto:info@blakearts.org"
+              className={`font-body text-xs tracking-widest uppercase transition-colors ${
+                isWorkPage || isCreativeLabPage || isContactPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-rust/70 hover:text-rust' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Email
+            </a>
             <a
               href="https://www.instagram.com/blakeartsuk"
               target="_blank"
@@ -104,6 +112,26 @@ export default function Footer() {
               }`}
             >
               Instagram
+            </a>
+            <a
+              href="https://substack.com/@davidblakema"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-body text-xs tracking-widest uppercase transition-colors ${
+                isWorkPage || isCreativeLabPage || isContactPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-rust/70 hover:text-rust' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Substack
+            </a>
+            <a
+              href="https://paypal.me/davidblake"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-body text-xs tracking-widest uppercase transition-colors ${
+                isWorkPage || isCreativeLabPage || isContactPage ? 'text-white/70 hover:text-white' : isGalleryPage ? 'text-rust/70 hover:text-rust' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              PayPal
             </a>
           </div>
           <p className={`font-body text-xs md:text-right ${
