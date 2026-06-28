@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
+
+const emptyForm = {
+  name: "",
+  email: "",
+  phone: "",
+  interest: "",
+  date: "",
+  time: "",
+  message: ""
+};
 
 const services = {
   choreography: {
@@ -62,15 +73,8 @@ const contactCards = [
 export default function Contact() {
   const [searchParams] = useSearchParams();
   const [selectedService, setSelectedService] = useState(searchParams.get("service") || "");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interest: "",
-    date: "",
-    time: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState(emptyForm);
+  const { toast } = useToast();
 
   const service = services[selectedService];
 
@@ -91,6 +95,11 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Contact submitted:", { service: selectedService, ...formData });
+    setFormData(emptyForm);
+    toast({
+      title: "Message sent",
+      description: "Thank you for reaching out. David will be in touch within 24-48 hours.",
+    });
   };
 
   const generateTimeSlots = () => {
