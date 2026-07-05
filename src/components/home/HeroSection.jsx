@@ -72,10 +72,10 @@ export default function HeroSection() {
               className="mt-8 max-w-3xl border-l border-white/30 pl-5 md:mt-10 md:pl-7"
             >
               <h2 className="font-body text-2xl font-light leading-tight tracking-[-0.02em] text-white md:text-4xl">
-                Creative leadership for people, organisations, and ideas in motion.
+                Unlock Purpose. Accelerate Growth. Create Lasting Impact.
               </h2>
               <p className="mt-5 max-w-2xl font-body text-base font-light leading-relaxed text-white md:text-lg">
-                Helping people redefine performance to unlock purpose, leadership and lasting impact.
+                Supporting artists, elite athletes, young people, and organisations through coaching, mentoring, and leadership development.
               </p>
             </motion.div>
 

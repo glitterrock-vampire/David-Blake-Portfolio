@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const highlights = [
   {
@@ -169,39 +168,6 @@ export default function Impact() {
         </div>
       </div>
 
-      {/* Cultural Impact */}
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-foreground text-background p-10 md:p-16"
-        >
-          <h2 className="font-heading text-3xl md:text-4xl text-background mb-6">
-            Cultural & Social Impact
-          </h2>
-          <p className="font-body text-lg md:text-xl text-white/80 font-light leading-relaxed mb-8 max-w-3xl">
-            Beyond performance and education, this work extends into communities, supporting schools, local authorities, charities, and youth services through creative learning, employability programmes, and personal development initiatives.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {["Schools", "Local Authorities", "Charities", "Youth Services", "NEET Programmes", "Youth Offending Teams", "Community Projects", "Arts Organisations"].map((item) => (
-              <div
-                key={item}
-                className="bg-white/10 border border-white/20 p-4 text-center"
-              >
-                <span className="font-body text-sm text-white/80">{item}</span>
-              </div>
-            ))}
-          </div>
-          <Link
-            to="/contact"
-            className="inline-block font-body text-sm tracking-widest lowercase bg-white text-black px-10 py-4 hover:bg-sage hover:text-background transition-all duration-300"
-          >
-            discuss partnership
-          </Link>
-        </motion.div>
-      </div>
     </div>
   );
 }

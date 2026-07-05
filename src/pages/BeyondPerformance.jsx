@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import School from "@mui/icons-material/School";
-import AccountBalance from "@mui/icons-material/AccountBalance";
-import VolunteerActivism from "@mui/icons-material/VolunteerActivism";
-import Groups from "@mui/icons-material/Groups";
-import RocketLaunch from "@mui/icons-material/RocketLaunch";
-import Handshake from "@mui/icons-material/Handshake";
 
 const programmes = [
   {
@@ -183,48 +177,6 @@ export default function BeyondPerformance() {
         </motion.div>
       </div>
 
-      {/* Community Impact Section */}
-      <div className="max-w-6xl mx-auto px-6 mt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-6">
-            Community & Social Impact
-          </h2>
-          <p className="font-body text-lg text-muted-foreground font-light leading-relaxed mb-12 max-w-3xl">
-            Supporting schools, local authorities, charities and youth services through creative learning, employability and personal development.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "Schools", Icon: School },
-              { name: "Local Authorities", Icon: AccountBalance },
-              { name: "Charities", Icon: VolunteerActivism },
-              { name: "Youth Services", Icon: Groups },
-              { name: "NEET Programmes", Icon: RocketLaunch },
-              { name: "Youth Offending Teams", Icon: Handshake }
-            ].map(({ name, Icon }, index) => (
-              <motion.div
-                key={name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="bg-gradient-to-br from-sage-50 to-sage-100 border border-sage-200 p-8 hover:border-sage-500 hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="mb-4 text-sage-800 transition-transform duration-300 group-hover:scale-110">
-                  <Icon fontSize="large" aria-hidden="true" />
-                </div>
-                <h3 className="font-heading text-lg text-sage-900 font-semibold">
-                  {name}
-                </h3>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
     </div>
   );
 }

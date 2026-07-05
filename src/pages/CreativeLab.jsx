@@ -39,12 +39,12 @@ const creativeLabServices = [
   {
     title: "Career Strategy Sessions",
     description: "One-on-one guidance for long-term career planning. Navigate the performing arts industry with strategic thinking, goal setting, and actionable career development plans.",
-    image: "/photos/Photo 08-12-2025, 12 02 27 (1).jpg",
+    image: "/photos/career-strategy-session.jpg",
   },
   {
     title: "Industry Networking",
     description: "Connect with industry professionals and build meaningful relationships. Learn networking strategies specific to the performing arts sector and expand your professional circle.",
-    image: "/photos/Photo 08-12-2025, 12 02 27 (2).jpg",
+    image: "/photos/industry-networking.jpg",
   },
 ];
 
@@ -79,41 +79,6 @@ export default function CreativeLab() {
         >
           The Creative Lab is a space for dancers and performing artists to explore professional growth, mindset, and sustainable career development. Sessions combine real-world insight, interactive exercises, and guidance from an experienced industry practitioner with a background across performance, education, and leadership.
         </motion.p>
-      </div>
-
-      {/* What You'll Get Section */}
-      <div className="max-w-4xl mx-auto px-6 mb-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-heading text-3xl md:text-4xl tracking-wide lowercase text-white text-center mb-12"
-        >
-          What You'll Get
-        </motion.h2>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {[
-            "Industry insights from an experienced performer and mentor",
-            "Tools for building networks and career strategy",
-            "Practical exercises and reflection prompts",
-            "Case studies and real-world examples",
-            "Live Q&A sessions",
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="flex items-start gap-4"
-            >
-              <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0" />
-              <p className="font-body text-base leading-relaxed text-white/70">{item}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Services Grid */}
