@@ -150,6 +150,49 @@ export default function BeyondPerformance() {
         </div>
       </div>
 
+      {/* Featured Interview */}
+      <div className="max-w-6xl mx-auto px-6 mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="grid grid-cols-1 overflow-hidden border border-foreground/10 bg-white/65 shadow-sm lg:grid-cols-[0.9fr_1.4fr]"
+        >
+          <div className="flex flex-col justify-center p-8 md:p-12">
+            <p className="mb-4 font-body text-xs uppercase tracking-[0.3em] text-sage-700">
+              Featured Interview
+            </p>
+            <h2 className="font-heading text-4xl md:text-5xl leading-tight text-foreground">
+              After the Curtain Call
+            </h2>
+            <p className="mt-5 font-body text-base md:text-lg leading-relaxed text-foreground/75">
+              A conversation that sits at the heart of Beyond Performance: what happens after the stage lights fade, and how artists and high performers carry their experience into purpose, leadership, and lasting impact.
+            </p>
+            <a
+              href="https://youtu.be/9ivsr0_Ap30"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-3 font-body text-sm tracking-widest lowercase text-foreground transition-all duration-300 hover:gap-4 hover:text-sage-800"
+            >
+              watch on youtube
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div className="relative aspect-video min-h-[260px] bg-slate-950 lg:aspect-auto">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/9ivsr0_Ap30"
+              title="After the Curtain Call interview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </motion.div>
+      </div>
+
       {/* Elite Athletes Highlight */}
       <div className="max-w-6xl mx-auto px-6 mt-24">
         <motion.div
